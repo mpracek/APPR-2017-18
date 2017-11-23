@@ -13,21 +13,21 @@ Prvi del je prvi del mojega raziskovanja, torej vinogradi po zunanjem izgledu, k
 Tudi v drugem delu raziskovanja bom imel ponovno imel Vinorodno deželo poleg tega pa bom imel še stolpca starost trt ter sorta.
 Naloga pa bo vsebovala tudi dve primerjalni tabeli, in sicer tabelo sloevsnkih avtohtonih sort ter tabelo ekološke pridelave.
 
-1.
-`Vinorodna dežela` - vinogradništvo bom razdelil na 4 regije, Primorsko, Podravsko, Posavsko ter zunaj vinorodnih območij,
-  - `zatravljenost` - meritev: površina, razdeljeno na zatravljenost in nezatravljenost(število),
-  - `nagib` - meritev: površina, razdeljeno na različne stopnje nagibov površja(število),
+*1.Zunanji opis vinogradov*
+  - `Vinorodna dežela` - vinogradništvo bom razdelil na 4 regije, Primorsko, Podravsko, Posavsko ter zunaj vinorodnih območij,
   - `pridelovalci` - meritev: število pridelovalcev(število),
   - `število vinogradov` - meritev: število vinogradov (število),
+  - `zatravljenost` - meritev: površina, razdeljeno na zatravljenost in nezatravljenost(število),
+  - `nagib` - meritev: površina, razdeljeno na različne stopnje nagibov površja(število),
   - `podlaga` - meritev: število trt, ki rastejo na določeni podlagi(število),
  
   
-2. 
-`Vinorodna dežela` - vinogradništvo bom razdelil na 4 regije, Primorsko, Podravsko, Posavsko ter zunaj vinorodnih območij,
+*2. Vinogradi po trtni sestavi*
+  - `Vinorodna dežela` - vinogradništvo bom razdelil na 4 regije, Primorsko, Podravsko, Posavsko ter zunaj vinorodnih območij,
   - `sorta` - meritev: število trt določene sorte(število),
   - `starost` - meritev: število trt določene starosti (število),
 
-3. Za mojo nalogo bodo pomembne tudi dve primerjalne tabele, in sicer:
+*3. Za mojo nalogo bodo pomembne tudi dve primerjalne tabele, in sicer:*
   - Tabelo slovenskih avtohtonih sort
   - Tabela ekološke pridelave 
 
