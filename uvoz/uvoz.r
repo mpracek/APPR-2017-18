@@ -14,34 +14,6 @@ uvozi.obcine <- function() {
   }
    return(tabela)
  }
- 
-# # Funkcija, ki uvozi podatke iz datoteke druzine.csv
-# uvozi.druzine <- function(obcine) {
-#   data <- read_csv2("podatki/druzine.csv", col_names = c("obcina", 1:4),
-#                     locale = locale(encoding = "Windows-1250"))
-#   data$obcina <- data$obcina %>% strapplyc("^([^/]*)") %>% unlist() %>%
-#     strapplyc("([^ ]+)") %>% sapply(paste, collapse = " ") %>% unlist()
-#   data$obcina[data$obcina == "Sveti Jurij"] <- "Sveti Jurij ob Ščavnici"
-#   data <- data %>% melt(id.vars = "obcina", variable.name = "velikost.druzine",
-#                         value.name = "stevilo.druzin")
-#   data$velikost.druzine <- parse_number(data$velikost.druzine)
-#   data$obcina <- factor(data$obcina, levels = obcine)
-#   return(data)
-# }
-# 
-# # Zapišimo podatke v razpredelnico obcine
-# obcine <- uvozi.obcine()
-# 
-# # Zapišimo podatke v razpredelnico druzine.
-# druzine <- uvozi.druzine(levels(obcine$obcina))
-# Da bomo delali v mapi, v kateri imamo vse podatke
-
-#setwd("C:/Users/Lenovo_Uporabnik/Desktop/FMF/2. letnik/R/Projekt/APPR-2017-18")
-require(dplyr)
-require(readr)
-#Podatke bom uvajal po vrsti; najprej tiste, ki so potrebni za prvi del naloge, nato za drugi itd.
-
-#Prvi del
 
 #velikosti vinogradov od 2000 do 2016
 velikost_slovenskih_vinogradov = read.csv2("podatki/velikost_vinogradov.csv")
