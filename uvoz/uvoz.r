@@ -3,17 +3,18 @@
 sl <- locale("sl", decimal_mark = ",", grouping_mark = ".")
 
 # Funkcija, ki uvozi podatke o vinskih sortah iz Wikipedije
-uvozi.obcine <- function() {
-  link <- "https://en.wikipedia.org/wiki/List_of_grape_varieties"
- stran <- html_session(link) %>% read_html()
- vinske.sorte <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>%.[[1]] %>% html_table(dec = ",")
- for (i in 1:ncol(tabela)) {
-    if (is.character(tabela[[i]])) {
-      Encoding(tabela[[i]]) <- "UTF-8"
-    }
-  }
-   return(tabela)
- }
+#uvozi.obcine <- function() {
+link <- "https://en.wikipedia.org/wiki/List_of_grape_varieties"
+stran <- html_session(link) %>% read_html()
+rdece.sorte <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>%.[[1]] %>% html_table(dec = ",")
+bele.sorte <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>%.[[2]] %>% html_table(dec = ",")
+  # for (i in 1:ncol(tabela)) {
+ #    if (is.character(tabela[[i]])) {
+ #      Encoding(tabela[[i]]) <- "UTF-8"
+ #    }
+ #  }
+ #   return(tabela)
+ # }
 
 #velikosti vinogradov od 2000 do 2016
 velikost_slovenskih_vinogradov = read.csv2("podatki/velikost_vinogradov.csv")
@@ -53,12 +54,6 @@ sorte_starost = read.csv2("podatki/Površina_najpogostejše_sorte_starost_2009_2
 grozdje = read.csv2("podatki/pridelava_grozdja2000-2016.csv")
 #Pridelava po količini 2009
 kolicina = read.csv2("podatki/pridelovalci_količina.csv")
-#vpeljava naših domačih sort
-#branje iz spletne strani....???
-                                 
-
-
-
                                            
 
 # Če bi imeli več funkcij za uvoz in nekaterih npr. še ne bi
