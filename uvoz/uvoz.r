@@ -3,18 +3,16 @@
 sl <- locale("sl", decimal_mark = ",", grouping_mark = ".")
 
 # Funkcija, ki uvozi podatke o vinskih sortah iz Wikipedije
-#uvozi.obcine <- function() {
 link <- "https://en.wikipedia.org/wiki/List_of_grape_varieties"
 stran <- html_session(link) %>% read_html()
 rdece.sorte <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>%.[[1]] %>% html_table(dec = ",")
 bele.sorte <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>%.[[2]] %>% html_table(dec = ",")
-  # for (i in 1:ncol(tabela)) {
- #    if (is.character(tabela[[i]])) {
- #      Encoding(tabela[[i]]) <- "UTF-8"
- #    }
- #  }
- #   return(tabela)
- # }
+bele.sorte$Pedigree <- NULL
+bele.sorte$`Hectares cultivated (Year)` <- NULL
+bele.sorte$'Year of introduction' <- NULL 
+rdece.sorte$Pedigree <- NULL
+rdece.sorte$`Hectares cultivated (Year)` <- NULL
+rdece.sorte$'Year of introduction' <- NULL 
 
 #velikosti vinogradov od 2000 do 2016
 velikost_slovenskih_vinogradov = read.csv2("podatki/velikost_vinogradov.csv")
@@ -58,6 +56,9 @@ kolicina = read.csv2("podatki/pridelovalci_količina.csv")
 ekolosko = read.csv2("podatki/ekoloska_pridelava.csv")
 #površina in število trsnic, matičnjakov in vinogradov (primerjava)
 trsnice.maticnjaki = read.csv2("podatki/trsnice.csv")
+#slovenske sorte
+slovenske.sorte = read.csv2("podatki/grid-export.csv")
+slovenske.sorte$Region <- NULL
 
 # Če bi imeli več funkcij za uvoz in nekaterih npr. še ne bi
 # potrebovali v 3. fazi, bi bilo smiselno funkcije dati v svojo
