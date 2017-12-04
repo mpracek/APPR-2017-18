@@ -5,11 +5,13 @@ sl <- locale("sl", decimal_mark = ",", grouping_mark = ".")
 # Funkcija, ki uvozi podatke o vinskih sortah iz Wikipedije
 link <- "https://en.wikipedia.org/wiki/List_of_grape_varieties"
 stran <- html_session(link) %>% read_html()
-rdece.sorte <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>%.[[1]] %>% html_table(dec = ",")
+
 bele.sorte <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>%.[[2]] %>% html_table(dec = ",")
 bele.sorte$Pedigree <- NULL
 bele.sorte$`Hectares cultivated (Year)` <- NULL
 bele.sorte$'Year of introduction' <- NULL 
+
+rdece.sorte <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>%.[[1]] %>% html_table(dec = ",")
 rdece.sorte$Pedigree <- NULL
 rdece.sorte$`Hectares cultivated (Year)` <- NULL
 rdece.sorte$'Year of introduction' <- NULL 
