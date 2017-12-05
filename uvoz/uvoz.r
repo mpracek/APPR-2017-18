@@ -17,50 +17,93 @@ rdece.sorte$`Hectares cultivated (Year)` <- NULL
 rdece.sorte$'Year of introduction' <- NULL 
 
 #velikosti vinogradov od 2000 do 2016
-velikost_slovenskih_vinogradov = read.csv2("podatki/velikost_vinogradov.csv")
-#velikosti vinogradov in število trt 2000 in 2010
-velikost.stevilo_trt =read.csv2("podatki/velikost_vinogradov_trte.csv")
-#pridelovalci po statističnih regijah
-pridelovalci_regije = read.csv2("podatki/pridelovalci")
-#Pridelovalci po površini
-pridelovalci_povrsina = read.csv2("podatki/sorte_starost")
+velikost_slovenskih_vinogradov = read.csv2("podatki/velikost_vinogradov.csv",
+                                           encoding = "UTF-8")
+
+#neuporabno, po statističnih regijah, ne vinorodnih okoliših
+# #velikosti vinogradov in število trt 2000 in 2010
+# velikost.stevilo_trt =read.csv2("podatki/velikost_vinogradov_trte.csv",
+#                                 skip = 2,
+#                                 encoding = "UTF-8")
+
+#PRidelovalci so po regijah, ne po vinorodnih deželah
+# # #pridelovalci po statističnih regijah
+# # pridelovalci_regije = read.csv2("podatki/pridelovalci.csv",
+#                                 skip = 2,
+#                                 encoding = "UTF-8")
+#LE vzhodna/zahodna SLO
+# #Pridelovalci po kolicini
+# pridelovalci_kolicina = read.csv2("podatki/pridelovalci_kolicina.csv",
+#                                   skip = 2,
+#                                   encoding = "UTF-8")
+
+# ALI BOMO TO UPORABILI??
 #pridelovalci po površini
-pridelovalci_povrsina =read.csv2("podatki/razredi_pridelovalcev.csv")
-#površina in število vinogradov glede na nagib vertikal po vinorodnih deželah in okoliših
-vertikale = read.csv2("podatki/nagib_vertikal.csv")
-#Nagib vinogradov
-nagib = read.csv2("podatki/nagib")
+# pridelovalci_povrsina =read.csv2("podatki/razredi_pridelovalcev.csv",
+#                                  skip = 2,
+#                                  encoding = "UTF-8")
+
+#Nagib vinogradov po vinorodnih deželah in okoliših
+nagib = read.csv2("podatki/nagib.csv",
+                  skip = 2,
+                  encoding = "UTF-8")
+
 #površina, število vinogradov in sadik glede na zatravljenost
-zatravljenost = read.csv2("podatki/zatravljenost.csv")
+zatravljenost = read.csv2("podatki/zatravljenost.csv",
+                          encoding = "UTF8",
+                          skip = 2)
 #površina, število vinogradov in sadik 2009, 2015
-povrsina.stevilo_vinogradov.sadik = read.csv2("podatki/povrsina,stevilo.vinograd,sadik.csv")
+povrsina.stevilo_vinogradov.sadik = read.csv2("podatki/povrsina,stevilo.vinograd,sadik.csv",
+                                              skip = 2,
+                                              encoding = "UTF-8")
 #podlaga na kateri rastejo trte 2009 in 2015
-podlaga = read.csv2("podatki/podlaga")
+podlaga = read.csv2("podatki/podlaga.csv",
+                    skip = 2,
+                    encoding = "UTF-8")
 #način gojenja trt
-gojenje = read.csv2("podatki/gojitvena_oblika")
+gojenje = read.csv2("podatki/gojitvena_oblika.csv",
+                    skip = 2,
+                    encoding = "UTF-8")
 
 
 #Drugi del
 
 #Najpogostejše sorte po površini, številu sadik
-sorte.povrsina_sadike = read.csv2("podatki/povrsina,sadik-sorte.csv")
+sorte.povrsina_sadike = read.csv2("podatki/povrsina,sadik-sorte.csv",
+                                  skip = 2,
+                                  encoding = "UTF-8")
+
 #Starost trt po površini in številu sadik
-starost.povrsina_sadike = read.csv2("podatki/povrsina,sadike-starost")
+starost.povrsina_sadike = read.csv2("podatki/povrsina,sadike-starost.csv",
+                                    skip = 2,
+                                    encoding = "UTF-8")
+
 #Najpogostejše sorte po starosti
-sorte_starost = read.csv2("podatki/sorte_starost.csv")
+sorte_starost = read.csv2("podatki/sorte_starost.csv",
+                          skip = 2,
+                          encoding = "UTF-8")
 #Pridelava grozdja
-grozdje = read.csv2("podatki/pridelava_grozdja.csv")
+grozdje = read.csv2("podatki/pridelava_grozdja.csv",
+                    skip = 2)
+
 #Pridelava po količini 2009
-kolicina = read.csv2("podatki/pridelovalci_količina.csv")
+kolicina = read.csv2("podatki/pridelovalci_kolicina.csv",
+                     skip = 2,
+                     encoding = "UTF-8")
                                            
 #Primerjalni del
 #ekološka pridelava (primerjava)
-ekolosko = read.csv2("podatki/ekoloska_pridelava.csv")
+ekolosko = read.csv2("podatki/ekoloska_pridelav.csv", 
+                     skip = 2,
+                     encoding = "UTF-8")
+
 #površina in število trsnic, matičnjakov in vinogradov (primerjava)
-trsnice.maticnjaki = read.csv2("podatki/trsnice.csv")
+trsnice.maticnjaki = read.csv2("podatki/trsnice.csv",
+                               skip = 1)
 #slovenske sorte
-slovenske.sorte = read.csv2("podatki/grid-export.csv")
-slovenske.sorte$Region <- NULL
+slovenske.sorte = read.csv2("podatki/vivc.slovenija.csv")
+slovenske.sorte$Variety.number.VIVC <- NULL
+slovenske.sorte$Species <- NULL
 
 # Če bi imeli več funkcij za uvoz in nekaterih npr. še ne bi
 # potrebovali v 3. fazi, bi bilo smiselno funkcije dati v svojo
