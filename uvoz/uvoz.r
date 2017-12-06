@@ -3,6 +3,7 @@
 sl <- locale("sl", decimal_mark = ",", grouping_mark = ".")
 
 # Funkcija, ki uvozi podatke o vinskih sortah iz Wikipedije
+# Vire sem prenesel 30.11.2017 
 link <- "https://en.wikipedia.org/wiki/List_of_grape_varieties"
 stran <- html_session(link) %>% read_html()
 
