@@ -1,0 +1,38 @@
+﻿"Površina in število vinogradov glede na nagib vertikal, vinorodne dežele in okoliši, Slovenija, 2009 in 2015"
+
+" ";" ";" ";"0%";"nad 0% do 5%";"nad 5% do 15%";"nad 15% do 30%";"nad 30% do 45%";"nad 45%"
+"Površina (ha)"
+" ";"2009"
+" ";" ";"SLOVENIJA";8.0;1084.3;3254.2;4752.0;1538.5;216.2
+" ";" ";"Podravje";0.4;15.0;877.1;3266.3;1013.6;174.8
+" ";" ";"Posavje";-;11.9;314.7;1191.0;510.6;40.7
+" ";" ";"Primorje";7.6;1057.3;2058.2;283.3;z;z
+" ";" ";"Izven vinorodnih okolišev";-;0.2;4.3;11.4;z;z
+" ";"2015"
+" ";" ";"SLOVENIJA";10.9;876.0;3126.5;5154.5;1663.3;219.0
+" ";" ";"Podravje";z;z;615.6;3382.0;1058.1;z
+" ";" ";"Posavje";-;5.0;269.6;1278.9;583.0;52.1
+" ";" ";"Primorje";z;z;2236.8;482.1;17.5;z
+" ";" ";"Izven vinorodnih okolišev";-;0.9;4.5;11.5;4.6;0.3
+"Število vinogradov"
+" ";"2009"
+" ";" ";"SLOVENIJA";43;2347;8503;14577;6496;1421
+" ";" ";"Podravje";5;107;2824;7508;3159;997
+" ";" ";"Posavje";-;60;1491;5966;3226;415
+" ";" ";"Primorje";38;2177;4159;994;z;z
+" ";" ";"Izven vinorodnih okolišev";-;3;29;109;z;z
+" ";"2015"
+" ";" ";"SLOVENIJA";48;1922;9658;17458;8275;1876
+" ";" ";"Podravje";z;z;2688;8499;4019;z
+" ";" ";"Posavje";-;41;1463;6964;4056;572
+" ";" ";"Primorje";z;z;5473;1865;157;z
+" ";" ";"Izven vinorodnih okolišev";-;10;34;130;43;5
+
+"Vir: Statistični urad Republike Slovenije. "
+" "
+"Zaradi zaokroževanja števil se seštevki ponekod ne ujemajo."
+
+"- (seznam "
+"HREF=http://www.stat.si/StatWeb/Common/PrikaziDokument.ashx?IdDatotek-"
+"e=8196 target=_blank) Metodološka pojasnila"
+

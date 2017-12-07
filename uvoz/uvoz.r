@@ -52,7 +52,8 @@ nagib = read.csv2("podatki/nagib.csv",
 #površina, število vinogradov in sadik glede na zatravljenost
 zatravljenost = read.csv2("podatki/zatravljenost.csv",
                           encoding = "UTF8",
-                          skip = 2)
+                          skip = 2,
+                          n_max = 48)
 #površina, število vinogradov in sadik 2009, 2015
 povrsina.stevilo_vinogradov.sadik = read.csv2("podatki/povrsina,stevilo.vinograd,sadik.csv",
                                               skip = 2,

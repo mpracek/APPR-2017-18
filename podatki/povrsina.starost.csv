@@ -1,0 +1,39 @@
+﻿"Površina vinogradov in število sadik po starostnih razredih, vinorodne dežele in okoliši, Slovenija, 2009 in 2015"
+
+" ";" ";" ";"do 1 leta";"1 do 2 let";"3 do 5 let";"6 do 9 let";"10 do 19 let";"20 do 29 let";"30 + let";"Ni podatka"
+"Površina (ha)"
+" ";"2009"
+" ";" ";"SLOVENIJA";z;586.9;1422.8;1763.0;4474.0;4053.8;3712.3;z
+" ";" ";"Podravje";z;z;406.5;631.3;1873.5;2245.1;1425.0;z
+" ";" ";"Posavje";z;z;199.9;315.0;525.3;563.1;984.3;-
+" ";" ";"Primorje";176.4;231.1;815.1;813.3;2067.9;1240.8;1298.2;-
+" ";" ";"Izven vinorodnih okolišev";-;0.4;1.5;3.4;7.3;4.7;4.8;-
+" ";"2015"
+" ";" ";"SLOVENIJA";258.3;598.1;798.3;1412.5;4928.4;3018.8;4673.6;-
+" ";" ";"Podravje";79.0;237.2;381.9;535.6;1753.8;1506.3;2022.0;-
+" ";" ";"Posavje";z;z;z;244.1;744.1;409.0;1139.7;-
+" ";" ";"Primorje";144.0;290.1;303.5;631.0;2420.7;1098.9;1503.1;-
+" ";" ";"Izven vinorodnih okolišev";z;z;z;1.8;9.9;4.7;8.8;-
+"Število sadik (v 1000)"
+" ";"2009"
+" ";" ";"SLOVENIJA";1378.7;2410.5;5684.1;7105.7;16823.6;13408.9;12102.6;0.0
+" ";" ";"Podravje";452.8;1011.5;1646.6;2681.9;7758.0;7758.8;4904.0;0.0
+" ";" ";"Posavje";231.4;472.8;878.5;1411.4;2299.4;2210.6;3758.5;-
+" ";" ";"Primorje";694.6;924.3;3153.3;2995.0;6733.3;3420.2;3421.6;-
+" ";" ";"Izven vinorodnih okolišev";-;1.9;5.6;17.3;33.0;19.3;18.6;-
+" ";"2015"
+" ";" ";"SLOVENIJA";1030.8;2403.1;3184.2;5729.2;19334.1;10883.5;15178.2;-
+" ";" ";"Podravje";302.2;918.2;1493.8;2160.0;7256.5;5730.6;6940.9;-
+" ";" ";"Posavje";z;z;z;1069.7;3221.3;1699.7;4259.4;-
+" ";" ";"Primorje";573.4;1178.3;1214.1;2492.8;8815.4;3434.9;3943.6;-
+" ";" ";"Izven vinorodnih okolišev";z;z;z;6.7;41.0;18.3;34.2;-
+
+"Vir: Statistični urad Republike Slovenije. "
+" "
+"Zaradi zaokroževanja števil se seštevki ponekod ne ujemajo."
+
+"Povezane vsebine: "
+"- (seznam "
+"HREF=http://www.stat.si/StatWeb/Common/PrikaziDokument.ashx?IdDatotek-"
+"e=8222 target=_blank) Metodološka pojasnila"
+
