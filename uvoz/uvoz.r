@@ -36,7 +36,7 @@ nagib[[5]] <- parse_number(nagib[[5]])
 nagib[[9]] <- parse_number(nagib[[9]])
 
 #površina, število vinogradov in sadik glede na zatravljenost
-zatravljenost = read.csv2("podatki/zatravljenost.csv",
+zatravljenost <- read_csv2("podatki/zatravljenost.csv",
                           skip = 2,
                           locale = locale(encoding = "UTF-8",
                                           decimal_mark = ".", grouping_mark = ","),
@@ -44,21 +44,21 @@ zatravljenost = read.csv2("podatki/zatravljenost.csv",
                           na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
                           
 #površina, število vinogradov in sadik 2009, 2015
-povrsina.stevilo_vinogradov.sadik = read.csv2("podatki/povrsina,stevilo.vinograd,sadik.csv",
+povrsina.stevilo_vinogradov.sadik <- read_csv2("podatki/povrsina,stevilo.vinograd,sadik.csv",
                                               skip = 2,
                                               locale = locale(encoding = "UTF-8",
                                                               decimal_mark = ".", grouping_mark = ","),
                                               n_max = 48,
                                               na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
 #podlaga na kateri rastejo trte 2009 in 2015
-podlaga = read.csv2("podatki/podlaga.csv",
+podlaga <- read_csv2("podatki/podlaga.csv",
                     skip = 2,
                     locale = locale(encoding = "UTF-8",
                                     decimal_mark = ".", grouping_mark = ","),
                     n_max = 48,
                     na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
 #način gojenja trt
-gojenje = read.csv2("podatki/gojitvena_oblika.csv",
+gojenje <- read_csv2("podatki/gojitvena_oblika.csv",
                     skip = 2,
                     locale = locale(encoding = "UTF-8",
                                     decimal_mark = ".", grouping_mark = ","),
@@ -69,7 +69,7 @@ gojenje = read.csv2("podatki/gojitvena_oblika.csv",
 #Drugi del
 
 #Najpogostejše sorte po površini, številu sadik
-sorte.povrsina_sadike = read.csv2("podatki/povrsina,sadik-sorte.csv",
+sorte.povrsina_sadike <- read_csv2("podatki/povrsina,sadik-sorte.csv",
                                   skip = 2,
                                   locale = locale(encoding = "UTF-8",
                                                   decimal_mark = ".", grouping_mark = ","),
@@ -77,7 +77,7 @@ sorte.povrsina_sadike = read.csv2("podatki/povrsina,sadik-sorte.csv",
                                   na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
 
 #Starost trt po površini in številu sadik
-starost.povrsina_sadike = read.csv2("podatki/povrsina,sadike-starost.csv",
+starost.povrsina_sadike <- read_csv2("podatki/povrsina,sadike-starost.csv",
                                     skip = 2,
                                     locale = locale(encoding = "UTF-8",
                                                     decimal_mark = ".", grouping_mark = ","),
@@ -85,14 +85,14 @@ starost.povrsina_sadike = read.csv2("podatki/povrsina,sadike-starost.csv",
                                     na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
 
 #Najpogostejše sorte po starosti
-sorte_starost = read.csv2("podatki/sorte_starost.csv",
+sorte_starost <- read_csv2("podatki/sorte_starost.csv",
                           skip = 2,
                           locale = locale(encoding = "UTF-8",
                                           decimal_mark = ".", grouping_mark = ","),
                           n_max = 48,
                           na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
 #Pridelava grozdja
-grozdje = read.csv2("podatki/pridelava_grozdja.csv",
+grozdje <- read_csv2("podatki/pridelava_grozdja.csv",
                     skip = 2,
                     locale = locale(encoding = "UTF-8",
                                     decimal_mark = ".", grouping_mark = ","),
@@ -100,7 +100,7 @@ grozdje = read.csv2("podatki/pridelava_grozdja.csv",
                     na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
 
 #Pridelava po količini 2009
-kolicina = read.csv2("podatki/pridelovalci_kolicina.csv",
+kolicina <- read_csv2("podatki/pridelovalci_kolicina.csv",
                      skip = 2,
                      locale = locale(encoding = "UTF-8",
                                      decimal_mark = ".", grouping_mark = ","),
@@ -109,7 +109,7 @@ kolicina = read.csv2("podatki/pridelovalci_kolicina.csv",
                                            
 #Primerjalni del
 #ekološka pridelava (primerjava)
-ekolosko = read.csv2("podatki/ekoloska_pridelav.csv", 
+ekolosko <- read_csv2("podatki/ekoloska_pridelav.csv", 
                      skip = 2,
                      locale = locale(encoding = "UTF-8",
                                      decimal_mark = ".", grouping_mark = ","),
@@ -117,10 +117,10 @@ ekolosko = read.csv2("podatki/ekoloska_pridelav.csv",
                      na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
 
 #površina in število trsnic, matičnjakov in vinogradov (primerjava)
-trsnice.maticnjaki = read.csv2("podatki/trsnice.csv",
+trsnice.maticnjaki <- read_csv2("podatki/trsnice.csv",
                                skip = 1)
 #slovenske sorte
-slovenske.sorte = read.csv2("podatki/vivc.slovenija.csv")
+slovenske.sorte <- read_csv2("podatki/vivc.slovenija.csv")
 slovenske.sorte$Variety.number.VIVC <- NULL
 slovenske.sorte$Species <- NULL
 
