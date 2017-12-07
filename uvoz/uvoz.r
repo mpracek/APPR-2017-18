@@ -45,7 +45,7 @@ velikost_slovenskih_vinogradov = read.csv2("podatki/velikost_vinogradov.csv",
 #                                  encoding = "UTF-8")
 
 #Nagib vinogradov po vinorodnih deželah in okoliših
-nagib = read.csv2("podatki/nagib.csv",
+nagib = read.csv2("podatki/vertikale.csv",
                   skip = 2,
                   encoding = "UTF-8")
 
