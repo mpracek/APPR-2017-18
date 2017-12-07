@@ -1,5 +1,5 @@
 # 2. faza: Uvoz podatkov
-
+sl <- locale(decimal_mark = ".", grouping_mark = ",")
 # Funkcija, ki uvozi podatke o vinskih sortah iz Wikipedije
 # Vire sem prenesel 30.11.2017 
 link <- "https://en.wikipedia.org/wiki/List_of_grape_varieties"
@@ -118,7 +118,10 @@ ekolosko <- read_csv2("podatki/ekoloska_pridelav.csv",
 
 #površina in število trsnic, matičnjakov in vinogradov (primerjava)
 trsnice.maticnjaki <- read_csv2("podatki/trsnice.csv",
-                               skip = 1)
+                               skip = 1,
+                               locale = locale(encoding = "UTF-8"),
+                               n_max = 48,
+                               na = c("", '-', "z") %>% fill(1:2) %>% drop_na(3))
 #slovenske sorte
 slovenske.sorte <- read_csv2("podatki/vivc.slovenija.csv")
 slovenske.sorte$Variety.number.VIVC <- NULL
