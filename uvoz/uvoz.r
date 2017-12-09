@@ -175,11 +175,15 @@ ekolosko[[3]] <- parse_number(ekolosko[[3]])
 
 #površina in število trsnic, matičnjakov in vinogradov (primerjava)
 trsnice.maticnjaki <- read_csv2("podatki/trsnice.csv",
-                               skip = 1,
+                               skip = 5,
                                locale = locale(encoding = "UTF-8"),
-                               n_max = 48,
+                               n_max = 27,
                                na = c("", '-', "z") %>% fill(1:2) %>% drop_na(3))
-ekolosko[[3]] <- parse_number(ekolosko[[3]])
+trsnice.maticnjaki[[3]] <- NULL
+trsnice.maticnjaki[[3]] <- parse_number(trsnice.maticnjaki[[3]])
+trsnice.maticnjaki[[4]] <- parse_number(trsnice.maticnjaki[[4]])
+trsnice.maticnjaki[[5]] <- parse_number(trsnice.maticnjaki[[5]])
+
 #slovenske sorte
 slovenske.sorte <- read_csv2("podatki/vivc.slovenija.csv")
 slovenske.sorte$Variety.number.VIVC <- NULL
