@@ -7,13 +7,17 @@
 #vinograda.
 ###
 
+###
+#Najprej naredimo vse v Tidy data z melt/ gather, nato pa z rbind združimo tabele
+#v dve "veliki" tabeli. 
+#NUJNO OPRAVILO.
 #površina, število vinogradov in sadik 2009, 2015
 stevilo_vinogradov.sadik <- read_csv2("podatki/povrsina,stevilo.vinograd,sadik.csv",
                                                skip = 2,
                                                locale = locale(encoding = "UTF-8",
                                                                decimal_mark = ".",
                                                                grouping_mark = ","),
-                                               #n_max = 43, ni pravo število vrstic
+                                               #n_max=Inf, #ni pravo število vrstic
                                                col_names = imena.stevilo.sadik,
                                                na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
 imena.stevilo.sadik <- c("Meritev","Leto","Vinorodna dežela",
@@ -37,6 +41,17 @@ stevilo_vinogradov.sadik[[14]] <- parse_number(stevilo_vinogradov.sadik[[14]])
 stevilo_vinogradov.sadik[[15]] <- parse_number(stevilo_vinogradov.sadik[[15]])
 stevilo_vinogradov.sadik[[16]] <- parse_number(stevilo_vinogradov.sadik[[16]])
 stevilo_vinogradov.sadik[[17]] <- parse_number(stevilo_vinogradov.sadik[[17]])
+
+# tidy_stevilo_vinogradov.sadik <- (stevilo_vinogradov.sadik,
+#                                   `"SKUPAJ"`,`"< 0,05 ha"`,`"0,05 do < 0,10 ha"`,
+#                                   `"0,10 do < 0,20 ha"`,`"0,20 do < 0,30 ha"`,
+#                                   `"0,30 do < 0,50 ha"``,"0,50 do < 1 ha"``,
+#                                   `"1 do < 2 ha"``,`"2 do < 3 ha"``,`"3 do < 5 ha"``,
+#                                   `"5 do < 10 ha"``,`"10 do < 20 ha"``,
+#                                   `"20 do < 30 ha"``,`">= 30 ha"``,
+#                                   key = "Površina", value = "Vrednost")
+
+zmanjšan_stevilo_vinogradov.sadik <- stevilo_vinogradov.sadik[c(1,2,3,4)]
 
 #Nagib vinogradov po vinorodnih deželah in okoliših
 
@@ -127,6 +142,11 @@ gojenje[[13]] <- parse_number(gojenje[[13]])
 gojenje[[12]] <- parse_number(gojenje[[12]])
 gojenje[[15]] <- parse_number(gojenje[[15]])
 gojenje[[16]] <- parse_number(gojenje[[16]])
+
+##
+#Prava tabela
+##
+prva.tabela <- 
 
 ###
 #Drugi del je tisti, v katerem bom opisal vinograde po bolj direktnih opisnih dejavnikih, kot so
@@ -247,7 +267,7 @@ ekolosko[[3]] <- parse_number(ekolosko[[3]])
 #ekolosko <- ekolosko[-c(1)]
 
 #površina in število trsnic, matičnjakov in vinogradov (primerjava)
-#NEKAJ NE DELA
+#n_max ne dela pravilno
 trsnice.maticnjaki <- read_csv2("podatki/trsnice.csv",
                                skip = 2,
                                locale = locale(encoding = "UTF-8"),
