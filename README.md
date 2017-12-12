@@ -6,12 +6,13 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2017/18
 
 Po tem, ko sem se odločil za vojo tematiko, sem na internetu poiskal podatke, kjer sem si pomagal predvsem s [SURS](http://pxweb.stat.si/pxweb/Database/Okolje/15_kmetijstvo_ribistvo/04_rastlinska_pridelava/06_15283_popis_vinogradov/06_15283_popis_vinogradov.asp), poleg tega pa še z [wikipedio](https://en.wikipedia.org/wiki/List_of_grape_varieties), ter [Vitis International Variety Collection](http://www.vivc.de).
 S svojim projektom želim raziskati obširno tematiko vinogradništva v Sloveniji, predvsem s stališča samega izgleda vinogradov, torej podlage, na kateri rastejo, nagib vinogradov, njihova zatravljenost, ter seveda njihova velikost in razširjenost, po drugi strani pa bom pogledal pridelavo grozdja v vinogradih po sortah, ter pogledal avtohtone slovenske sorte.
-Pri vsem bom upošteval razdeljenost po občinah ter vinorodnih deželah.
-Podatki, ki sem jih našel na SURS, se nanašajo na zelo različna leta in so zato problematični, saj se jih ne da lepo zdrušiti in/ ali primerjati. Velik problem je tudi nedostopnost podatkov, saj vsi podatki niso splošno dostopni, saj so poslovna tajnost, kar je bil tudi eden izmed razlogov, da nisem obravnaval tudi vinarstva. 
+Pri vsem bom upošteval razdeljenost po vinorodnih deželah.
+Podatki, ki sem jih našel na SURS, se nanašajo na zelo različna leta in so zato problematični, saj se jih ne da lepo združiti in/ ali primerjati. Velik problem je tudi nedostopnost podatkov, saj vsi podatki niso splošno dostopni, saj so poslovna tajnost, kar je bil tudi eden izmed razlogov, da nisem obravnaval tudi vinarstva. 
 
-Prvi del je prvi del mojega raziskovanja, torej vinogradi po zunanjem izgledu, kjer bom opazoval zunanje značilnosti, kot so na primer zatravljenost, nagib površine, število trt itd.
-Tudi v drugem delu raziskovanja bom imel ponovno imel Vinorodno deželo poleg tega pa bom imel še stolpca starost trt ter sorta.
-Naloga pa bo vsebovala tudi dve primerjalni tabeli, in sicer tabelo sloevsnkih avtohtonih sort ter tabelo ekološke pridelave.
+Prvi del mojega raziskovanja, torej vinogradi po zunanjem izgledu je del, kjer bom opazoval zunanje značilnosti, kot so na primer zatravljenost, nagib površine, število trt itd. Ostala dva stolpca bosta Vinorodna dežela ter Meritev.
+Tudi v drugem delu bom imel stolpca Meritev ter Vinorodna dežela, poleg tega pa bodo stolpci, kjer bom opisoval trte, in sicer sorte ter starost.
+Naloga pa bo vsebovala tudi dve primerjalni tabeli, in sicer tabelo slovenskih avtohtonih sort ter tabelo ekološke pridelave.
+Za občutek, kaj pomeni Slovenija v vinogradništvu in raznolikosti le tega, bom dodal še tabelo, ki sem jo našel na Wikipediji, kjer so sorte zapisane ob svoji državi izvora. 
 
 *1.Zunanji opis vinogradov*
   - `Vinorodna dežela` - vinogradništvo bom razdelil na 4 regije, Primorsko, Podravsko, Posavsko ter zunaj vinorodnih območij,
