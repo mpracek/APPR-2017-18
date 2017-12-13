@@ -42,10 +42,11 @@ stevilo_vinogradov.sadik[[15]] <- parse_number(stevilo_vinogradov.sadik[[15]])
 stevilo_vinogradov.sadik[[16]] <- parse_number(stevilo_vinogradov.sadik[[16]])
 stevilo_vinogradov.sadik[[17]] <- parse_number(stevilo_vinogradov.sadik[[17]])
 
-tidy_stevilo_vinogradov.sadik <- gather(stevilo_vinogradov.sadik,
+tidy_stevilo_vinogradov.sadik <- arrange(gather(stevilo_vinogradov.sadik,
                                                 key =  "Velikostni razred" ,
                                                 value = "Vrednost" ,
-                                                -1, -2, -3)
+                                                -1, -2, -3),
+                                         Meritev)
 
 zmanjšan_stevilo_vinogradov.sadik <- stevilo_vinogradov.sadik[c(1,2,3,4)]
 
@@ -69,7 +70,11 @@ nagib[[4]] <- parse_number(nagib[[4]])
 nagib[[5]] <- parse_number(nagib[[5]])
 nagib[[9]] <- parse_number(nagib[[9]])
 
-tidy_nagib <- gather(nagib, key =  "Nagib", value = "Vrednost", -1, -2, -3)
+tidy_nagib <- arrange(gather(nagib,
+                             key =  "Nagib",
+                             value = "Vrednost",
+                             -1, -2, -3),
+                      Meritev)
 
 #površina, število vinogradov in sadik glede na zatravljenost
 zatravljenost <- read_csv2("podatki/zatravljenost.csv",
@@ -91,10 +96,11 @@ zatravljenost[[7]] <- parse_number(zatravljenost[[7]])
 zatravljenost[[8]] <- parse_number(zatravljenost[[8]])
 zatravljenost[[9]] <- parse_number(zatravljenost[[9]])
 
-tidy_zatravljenost <- gather(zatravljenost,
-                             key =  "Zatravljenost",
-                             value = "Vrednost",
-                             -1, -2, -3)                          
+tidy_zatravljenost <- arrange(gather(zatravljenost,
+                                     key =  "Zatravljenost",
+                                     value = "Vrednost",
+                                     -1, -2, -3),
+                              Meritev)
 
 #podlaga na kateri rastejo trte 2009 in 2015
 podlaga <- read_csv2("podatki/podlaga.csv",
@@ -118,10 +124,11 @@ podlaga[[13]] <- parse_number(podlaga[[13]])
 podlaga[[18]] <- parse_number(podlaga[[18]])
 podlaga[[21]] <- parse_number(podlaga[[21]])
 
-tidy_podlaga <- gather(podlaga,
-                       key =  "Vrsta podlage" ,
-                       value = "Vrednost" ,
-                       -1, -2, -3)
+tidy_podlaga <- arrange(gather(podlaga,
+                               key =  "Vrsta podlage" ,
+                               value = "Vrednost" ,
+                               -1, -2, -3),
+                       Meritev)
 
 #način gojenja trt
 gojenje <- read_csv2("podatki/gojitvena_oblika.csv",
@@ -148,15 +155,16 @@ gojenje[[12]] <- parse_number(gojenje[[12]])
 gojenje[[15]] <- parse_number(gojenje[[15]])
 gojenje[[16]] <- parse_number(gojenje[[16]])
 
-tidy_gojenje <- gather(gojenje,
-                       key =  "Velikostni razred" ,
-                       value = "Vrednost" ,
-                       -1, -2, -3)
+tidy_gojenje <- arrange(gather(gojenje,
+                               key =  "Velikostni razred" ,
+                               value = "Vrednost" ,
+                               -1, -2, -3),
+                        Meritev)
 
 ##
 #Prva tabela
 ##
-prva.tabela <- 
+Zunanji.izgled <- 
 
 ###
 #Drugi del je tisti, v katerem bom opisal vinograde po bolj direktnih opisnih dejavnikih, kot so
@@ -209,10 +217,11 @@ sorte.povrsina_sadike[[25]] <- parse_number(sorte.povrsina_sadike[[25]])
 sorte.povrsina_sadike[[29]] <- parse_number(sorte.povrsina_sadike[[29]])
 sorte.povrsina_sadike[[30]] <- parse_number(sorte.povrsina_sadike[[30]])
 
-tidy_sorte.povrsina_sadike <- gather(sorte.povrsina_sadike,
-                       key =  "Sorta" ,
-                       value = "Vrednost" ,
-                       -1, -2, -3)
+tidy_sorte.povrsina_sadike <- arrange(gather(sorte.povrsina_sadike,
+                                             key =  "Sorta" ,
+                                             value = "Vrednost" ,
+                                             -1, -2, -3),
+                                      Meritev)
 
 #Starost trt po površini in številu sadik
 starost.povrsina_sadike <- read_csv2("podatki/povrsina,sadike-starost.csv",
@@ -229,10 +238,11 @@ imena.starost.povrsina <- c("Meritev","Leto","Vinorodna dežela",
                             "20 do 29 let","30 + let","Ni podatka")
 starost.povrsina_sadike[[11]] <- parse_number(starost.povrsina_sadike[[11]])
 
-tidy_starost.povrsina_sadike <- gather(starost.povrsina_sadike,
-                                     key =  "Sorta" ,
-                                     value = "Vrednost" ,
-                                     -1, -2, -3)
+tidy_starost.povrsina_sadike <- arrange(gather(starost.povrsina_sadike,
+                                               key =  "Sorta" ,
+                                               value = "Vrednost" ,
+                                               -1, -2, -3),
+                                        Meritev)
 
 # #Najpogostejše sorte po starosti
 # sorte_starost <- read_csv2("podatki/sorte_starost.csv",
@@ -284,6 +294,7 @@ ekolosko <- read_csv2("podatki/raba_ekoloskih_zemljics.csv",
                      col_names = imena.ekolosko,
                      na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
 imena.ekolosko <- c("Meritev", "Leto", "Vinogradi")
+
 ekolosko[[3]] <- parse_number(ekolosko[[3]])
 
 
@@ -304,10 +315,11 @@ trsnice.maticnjaki[[4]] <- parse_number(trsnice.maticnjaki[[4]])
 trsnice.maticnjaki[[5]] <- parse_number(trsnice.maticnjaki[[5]])
 
 
-tidy_trsnice.maticnjaki <- gather(trsnice.maticnjaki,
-                                  key =  "Pridelava" ,
-                                  value = "Vrednost" ,
-                                  -1, -2, -3)
+tidy_trsnice.maticnjaki <- arrange(gather(trsnice.maticnjaki,
+                                          key =  "Pridelava" ,
+                                          value = "Vrednost" ,
+                                          -1, -2, -3),
+                                   Meritev)
 
 #slovenske sorte
 slovenske.sorte <- read_csv2("podatki/vivc.slovenija.csv")
