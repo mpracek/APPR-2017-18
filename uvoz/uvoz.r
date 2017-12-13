@@ -42,14 +42,10 @@ stevilo_vinogradov.sadik[[15]] <- parse_number(stevilo_vinogradov.sadik[[15]])
 stevilo_vinogradov.sadik[[16]] <- parse_number(stevilo_vinogradov.sadik[[16]])
 stevilo_vinogradov.sadik[[17]] <- parse_number(stevilo_vinogradov.sadik[[17]])
 
-# tidy_stevilo_vinogradov.sadik <- (stevilo_vinogradov.sadik,
-#                                   `"SKUPAJ"`,`"< 0,05 ha"`,`"0,05 do < 0,10 ha"`,
-#                                   `"0,10 do < 0,20 ha"`,`"0,20 do < 0,30 ha"`,
-#                                   `"0,30 do < 0,50 ha"``,"0,50 do < 1 ha"``,
-#                                   `"1 do < 2 ha"``,`"2 do < 3 ha"``,`"3 do < 5 ha"``,
-#                                   `"5 do < 10 ha"``,`"10 do < 20 ha"``,
-#                                   `"20 do < 30 ha"``,`">= 30 ha"``,
-#                                   key = "Površina", value = "Vrednost")
+tidy_stevilo_vinogradov.sadik <- gather(stevilo_vinogradov.sadik,
+                                                key =  "Velikostni razred" ,
+                                                value = "Vrednost" ,
+                                                -1, -2, -3)
 
 zmanjšan_stevilo_vinogradov.sadik <- stevilo_vinogradov.sadik[c(1,2,3,4)]
 
@@ -73,6 +69,7 @@ nagib[[4]] <- parse_number(nagib[[4]])
 nagib[[5]] <- parse_number(nagib[[5]])
 nagib[[9]] <- parse_number(nagib[[9]])
 
+tidy_nagib <- gather(nagib, key =  "Nagib", value = "Vrednost", -1, -2, -3)
 
 #površina, število vinogradov in sadik glede na zatravljenost
 zatravljenost <- read_csv2("podatki/zatravljenost.csv",
@@ -93,7 +90,11 @@ zatravljenost[[6]] <- parse_number(zatravljenost[[6]])
 zatravljenost[[7]] <- parse_number(zatravljenost[[7]])
 zatravljenost[[8]] <- parse_number(zatravljenost[[8]])
 zatravljenost[[9]] <- parse_number(zatravljenost[[9]])
-                          
+
+tidy_zatravljenost <- gather(zatravljenost,
+                             key =  "Zatravljenost",
+                             value = "Vrednost",
+                             -1, -2, -3)                          
 
 #podlaga na kateri rastejo trte 2009 in 2015
 podlaga <- read_csv2("podatki/podlaga.csv",
@@ -117,6 +118,10 @@ podlaga[[13]] <- parse_number(podlaga[[13]])
 podlaga[[18]] <- parse_number(podlaga[[18]])
 podlaga[[21]] <- parse_number(podlaga[[21]])
 
+tidy_podlaga <- gather(podlaga,
+                       key =  "Vrsta podlage" ,
+                       value = "Vrednost" ,
+                       -1, -2, -3)
 
 #način gojenja trt
 gojenje <- read_csv2("podatki/gojitvena_oblika.csv",
@@ -143,8 +148,13 @@ gojenje[[12]] <- parse_number(gojenje[[12]])
 gojenje[[15]] <- parse_number(gojenje[[15]])
 gojenje[[16]] <- parse_number(gojenje[[16]])
 
+tidy_gojenje <- gather(gojenje,
+                       key =  "Velikostni razred" ,
+                       value = "Vrednost" ,
+                       -1, -2, -3)
+
 ##
-#Prava tabela
+#Prva tabela
 ##
 prva.tabela <- 
 
@@ -161,7 +171,7 @@ sorte.povrsina_sadike <- read_csv2("podatki/povrsina,sadik-sorte.csv",
                                   n_max = 27,
                                   col_names = imena.sorte.povrsina,
                                   na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
-imena.sorte.povrsina <- c("Leto","Meritev","Bele sorte- Beli pinot",
+imena.sorte.povrsina <- c("Leto","Meritev","Vinorodna dežela","Bele sorte- Beli pinot",
                    "Bele sorte- Chardonnay","Bele sorte- Kraljevina",
                    "Bele sorte- Laški rizling","Bele sorte- Malvazija",
                    "Bele sorte- Rebula","Bele sorte- Renski rizling",
@@ -199,6 +209,10 @@ sorte.povrsina_sadike[[25]] <- parse_number(sorte.povrsina_sadike[[25]])
 sorte.povrsina_sadike[[29]] <- parse_number(sorte.povrsina_sadike[[29]])
 sorte.povrsina_sadike[[30]] <- parse_number(sorte.povrsina_sadike[[30]])
 
+tidy_sorte.povrsina_sadike <- gather(sorte.povrsina_sadike,
+                       key =  "Sorta" ,
+                       value = "Vrednost" ,
+                       -1, -2, -3)
 
 #Starost trt po površini in številu sadik
 starost.povrsina_sadike <- read_csv2("podatki/povrsina,sadike-starost.csv",
@@ -215,33 +229,40 @@ imena.starost.povrsina <- c("Meritev","Leto","Vinorodna dežela",
                             "20 do 29 let","30 + let","Ni podatka")
 starost.povrsina_sadike[[11]] <- parse_number(starost.povrsina_sadike[[11]])
 
-#Najpogostejše sorte po starosti
-sorte_starost <- read_csv2("podatki/sorte_starost.csv",
-                          skip = 3,
-                          locale = locale(encoding = "UTF-8",
-                                          decimal_mark = ".",
-                                          grouping_mark = ","),
-                          n_max = 14,
-                          col_names = imena.starost,
-                          na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
-imena.starost <- c("Leto","Meritev","Bele sorte- Beli pinot",
-                   "Bele sorte- Chardonnay","Bele sorte- Kraljevina",
-                   "Bele sorte- Laški rizling","Bele sorte- Malvazija",
-                   "Bele sorte- Rebula","Bele sorte- Renski rizling",
-                   "Bele sorte- Rumeni muškat","Bele sorte- Sauvignon",
-                   "Bele sorte- Sivi pinot","Bele sorte- Šipon",
-                   "Bele sorte- Traminec","Bele sorte- Zeleni silvanec",
-                   "Ostale bele sorte","Rdeče sorte- Barbera",
-                   "Rdeče sorte- Cabernet franc","Rdeče sorte- Cabernet sauvignon",
-                   "Rdeče sorte- Merlot","Rdeče sorte- Modra frankinja",
-                   "Rdeče sorte- Modri pinot","Rdeče sorte- Portugalka",
-                   "Rdeče sorte- Refošk","Rdeče sorte- Zweigelt",
-                   "Rdeče sorte- Žametovka","Rdeče sorte- Syrah",
-                   "Ostale rdeče sorte","Ni podatka o sorti")
-sorte_starost[[14]] <- parse_number(sorte_starost[[14]])
-sorte_starost[[25]] <- parse_number(sorte_starost[[25]])
-sorte_starost[[28]] <- parse_number(sorte_starost[[28]])
-sorte_starost[[29]] <- parse_number(sorte_starost[[29]])
+tidy_starost.povrsina_sadike <- gather(starost.povrsina_sadike,
+                                     key =  "Sorta" ,
+                                     value = "Vrednost" ,
+                                     -1, -2, -3)
+
+# #Najpogostejše sorte po starosti
+# sorte_starost <- read_csv2("podatki/sorte_starost.csv",
+#                           skip = 3,
+#                           locale = locale(encoding = "UTF-8",
+#                                           decimal_mark = ".",
+#                                           grouping_mark = ","),
+#                           n_max = 14,
+#                           col_names = imena.starost,
+#                           na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
+# imena.starost <- c("Leto","Meritev","Bele sorte- Beli pinot",
+#                    "Bele sorte- Chardonnay","Bele sorte- Kraljevina",
+#                    "Bele sorte- Laški rizling","Bele sorte- Malvazija",
+#                    "Bele sorte- Rebula","Bele sorte- Renski rizling",
+#                    "Bele sorte- Rumeni muškat","Bele sorte- Sauvignon",
+#                    "Bele sorte- Sivi pinot","Bele sorte- Šipon",
+#                    "Bele sorte- Traminec","Bele sorte- Zeleni silvanec",
+#                    "Ostale bele sorte","Rdeče sorte- Barbera",
+#                    "Rdeče sorte- Cabernet franc","Rdeče sorte- Cabernet sauvignon",
+#                    "Rdeče sorte- Merlot","Rdeče sorte- Modra frankinja",
+#                    "Rdeče sorte- Modri pinot","Rdeče sorte- Portugalka",
+#                    "Rdeče sorte- Refošk","Rdeče sorte- Zweigelt",
+#                    "Rdeče sorte- Žametovka","Rdeče sorte- Syrah",
+#                    "Ostale rdeče sorte","Ni podatka o sorti")
+# sorte_starost[[14]] <- parse_number(sorte_starost[[14]])
+# sorte_starost[[25]] <- parse_number(sorte_starost[[25]])
+# sorte_starost[[28]] <- parse_number(sorte_starost[[28]])
+# sorte_starost[[29]] <- parse_number(sorte_starost[[29]])
+
+
 
 # Mogoče uporabim, če mi uspe primerjati
 #Pridelava grozdja
@@ -264,7 +285,7 @@ ekolosko <- read_csv2("podatki/raba_ekoloskih_zemljics.csv",
                      na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
 imena.ekolosko <- c("Meritev", "Leto", "Vinogradi")
 ekolosko[[3]] <- parse_number(ekolosko[[3]])
-#ekolosko <- ekolosko[-c(1)]
+
 
 #površina in število trsnic, matičnjakov in vinogradov (primerjava)
 #n_max ne dela pravilno
@@ -281,15 +302,20 @@ trsnice.maticnjaki[[3]] <- NULL
 trsnice.maticnjaki[[3]] <- parse_number(trsnice.maticnjaki[[3]])
 trsnice.maticnjaki[[4]] <- parse_number(trsnice.maticnjaki[[4]])
 trsnice.maticnjaki[[5]] <- parse_number(trsnice.maticnjaki[[5]])
-trsnice.maticnjaki <- read.csv2("podatki/trsnice.csv",
-                                skip = 5)
+
+
+tidy_trsnice.maticnjaki <- gather(trsnice.maticnjaki,
+                                  key =  "Pridelava" ,
+                                  value = "Vrednost" ,
+                                  -1, -2, -3)
+
 #slovenske sorte
 slovenske.sorte <- read_csv2("podatki/vivc.slovenija.csv")
-slovenske.sorte$Variety.number.VIVC <- NULL
+slovenske.sorte$`Variety number VIVC` <- NULL
 slovenske.sorte$Species <- NULL
 
 # Funkcija, ki uvozi podatke o vinskih sortah iz Wikipedije
-# Vire sem prenesel 30.11.2017 
+# Vire sem prenesel 13.12.2017 
 link <- "https://en.wikipedia.org/wiki/List_of_grape_varieties"
 stran <- html_session(link) %>% read_html()
 
