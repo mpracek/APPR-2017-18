@@ -156,7 +156,7 @@ gojenje[[15]] <- parse_number(gojenje[[15]])
 gojenje[[16]] <- parse_number(gojenje[[16]])
 
 tidy_gojenje <- arrange(gather(gojenje,
-                               key =  "Velikostni razred" ,
+                               key =  "Način gojenja" ,
                                value = "Vrednost" ,
                                -1, -2, -3),
                         Meritev)
