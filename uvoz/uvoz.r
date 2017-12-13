@@ -244,45 +244,10 @@ tidy_starost.povrsina_sadike <- arrange(gather(starost.povrsina_sadike,
                                                -1, -2, -3),
                                         Meritev)
 
-# #Najpogostejše sorte po starosti
-# sorte_starost <- read_csv2("podatki/sorte_starost.csv",
-#                           skip = 3,
-#                           locale = locale(encoding = "UTF-8",
-#                                           decimal_mark = ".",
-#                                           grouping_mark = ","),
-#                           n_max = 14,
-#                           col_names = imena.starost,
-#                           na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
-# imena.starost <- c("Leto","Meritev","Bele sorte- Beli pinot",
-#                    "Bele sorte- Chardonnay","Bele sorte- Kraljevina",
-#                    "Bele sorte- Laški rizling","Bele sorte- Malvazija",
-#                    "Bele sorte- Rebula","Bele sorte- Renski rizling",
-#                    "Bele sorte- Rumeni muškat","Bele sorte- Sauvignon",
-#                    "Bele sorte- Sivi pinot","Bele sorte- Šipon",
-#                    "Bele sorte- Traminec","Bele sorte- Zeleni silvanec",
-#                    "Ostale bele sorte","Rdeče sorte- Barbera",
-#                    "Rdeče sorte- Cabernet franc","Rdeče sorte- Cabernet sauvignon",
-#                    "Rdeče sorte- Merlot","Rdeče sorte- Modra frankinja",
-#                    "Rdeče sorte- Modri pinot","Rdeče sorte- Portugalka",
-#                    "Rdeče sorte- Refošk","Rdeče sorte- Zweigelt",
-#                    "Rdeče sorte- Žametovka","Rdeče sorte- Syrah",
-#                    "Ostale rdeče sorte","Ni podatka o sorti")
-# sorte_starost[[14]] <- parse_number(sorte_starost[[14]])
-# sorte_starost[[25]] <- parse_number(sorte_starost[[25]])
-# sorte_starost[[28]] <- parse_number(sorte_starost[[28]])
-# sorte_starost[[29]] <- parse_number(sorte_starost[[29]])
-
-
-
-# Mogoče uporabim, če mi uspe primerjati
-#Pridelava grozdja
-# grozdje <- read_csv2("podatki/pridelava_grozdja.csv",
-#                     skip = 2,
-#                     locale = locale(encoding = "UTF-8",
-#                                     decimal_mark = ".", grouping_mark = ","),
-#                     n_max = 48,
-#                     na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
-
+##
+#druga velika tabela
+##
+Pridelava <-
 
 #Primerjalni del
 #ekološka pridelava (primerjava)
