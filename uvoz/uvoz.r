@@ -63,7 +63,7 @@ tidy_nagib <- arrange(gather(nagib,
   mutate(Vrednost = parse_number(Vrednost))
 
 stidy_nagib <- dcast(tidy_nagib,
-                     Leto + Vinorodna.dezela + Velikostni.razred ~ Meritev)
+                     Leto + Vinorodna.dezela + Nagib ~ Meritev)
 
 #površina, število vinogradov in sadik glede na zatravljenost
 
@@ -87,8 +87,10 @@ tidy_zatravljenost <- arrange(gather(zatravljenost,
                                      -1, -2, -3),
                               Meritev)%>%
   mutate(Vrednost = parse_number(Vrednost))
+
 stidy_zatravljenost <- dcast(tidy_zatravljenost,
-                             Leto + Vinorodna.dezela + Velikostni.razred ~ Meritev)
+                             Leto + Vinorodna.dezela + Zatravljenost ~ Meritev)
+
 #podlaga na kateri rastejo trte 2009 in 2015
 
 imena.podlaga <- c("Meritev","Leto","Vinorodna.dezela",
@@ -110,13 +112,15 @@ podlaga <- read_csv2("podatki/podlaga.csv",
 
 
 tidy_podlaga <- arrange(gather(podlaga,
-                               key =  "Vrsta podlage" ,
+                               key =  "Vrsta.podlage" ,
                                value = "Vrednost" ,
                                -1, -2, -3),
                        Meritev)%>%
   mutate(Vrednost = parse_number(Vrednost))
+
 stidy_podlaga <- dcast(tidy_podlaga,
-                       Leto + Vinorodna.dezela + Velikostni.razred ~ Meritev)
+                       Leto + Vinorodna.dezela + Vrsta.podlage ~ Meritev)
+
 #način gojenja trt
 
 imena.gojenje <- c("Meritev","Leto","Vinorodna.dezela",
@@ -141,28 +145,23 @@ gojenje <- read_csv2("podatki/gojitvena_oblika.csv",
 
 
 tidy_gojenje <- arrange(gather(gojenje,
-                               key =  "Način gojenja" ,
+                               key =  "Nacin.gojenja" ,
                                value = "Vrednost" ,
                                -1, -2, -3),
                         Meritev)%>%
   mutate(Vrednost = parse_number(Vrednost))
 
 stidy_gojenje <- dcast(tidy_gojenje,
-                       Leto + Vinorodna.dezela + Velikostni.razred ~ Meritev)
+                       Leto + Vinorodna.dezela + Nacin.gojenja ~ Meritev)
 
-##
-#Prva tabela
-##
-Zunanji.povrsina <- 
-Zunanji.sadike <-
-message("Uvažam prvi veliki tabeli...  \n")
+
 ###
 #Drugi del je tisti, v katerem bom opisal vinograde po bolj direktnih opisnih dejavnikih, kot so
 #sorte in starost trt.
 ###
 #Najpogostejše sorte po površini, številu sadik
 
-imena.sorte.povrsina <- c("Leto","Meritev","Vinorodna.dezela","Bele sorte- Beli pinot",
+imena.sorte.povrsina <- c("Meritev","Leto","Vinorodna.dezela","Bele sorte- Beli pinot",
                           "Bele sorte- Chardonnay","Bele sorte- Kraljevina",
                           "Bele sorte- Laški rizling","Bele sorte- Malvazija",
                           "Bele sorte- Rebula","Bele sorte- Renski rizling",
@@ -194,8 +193,8 @@ tidy_sorte.povrsina_sadike <- arrange(gather(sorte.povrsina_sadike,
                                       Meritev)%>%
   mutate(Vrednost = parse_number(Vrednost))
 
-stidy_sorte.povrsina_sadike <- dcast(sorte.povrsina_sadike,
-                       Leto + Vinorodna.dezela + Velikostni.razred ~ Meritev)
+stidy_sorte.povrsina_sadike <- dcast(tidy_sorte.povrsina_sadike,
+                       Leto + Vinorodna.dezela + Sorta ~ Meritev)
 
 #Starost trt po površini in številu sadik
 
@@ -210,24 +209,19 @@ starost.povrsina_sadike <- read_csv2("podatki/povrsina,sadike-starost.csv",
                                     locale = locale(encoding = "UTF-8",
                                                     decimal_mark = ".",
                                                     grouping_mark = ","),
-                                    n_max = Inf,
                                     col_names = imena.starost.povrsina,
                                     na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
 
 tidy_starost.povrsina_sadike <- arrange(gather(starost.povrsina_sadike,
-                                               key =  "Sorta" ,
+                                               key =  "Starost" ,
                                                value = "Vrednost" ,
                                                -1, -2, -3),
                                         Meritev)%>%
   mutate(Vrednost = parse_number(Vrednost))
 
 stidy_starost.povrsina_sadike <- dcast(tidy_starost.povrsina_sadike,
-                                     Leto + Vinorodna.dezela + Velikostni.razred ~ Meritev)
+                                     Leto + Vinorodna.dezela + Starost ~ Meritev)
 
-##
-#druga velika tabela
-##
-Pridelava <-
 
 #Primerjalni del
 #ekološka pridelava (primerjava)
