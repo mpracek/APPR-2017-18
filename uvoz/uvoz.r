@@ -36,7 +36,7 @@ tidy_stevilo_vinogradov.sadik <- arrange(gather(stevilo_vinogradov.sadik,
 stidy_stevilo_vinogradov.sadik <- dcast(tidy_stevilo_vinogradov.sadik,
                             Leto + Vinorodna.dezela + Velikostni.razred ~ Meritev)
 
-zmanjšan_stevilo_vinogradov.sadik <- stevilo_vinogradov.sadik[c(1,2,3,4)]
+zmanjsan_stevilo_vinogradov.sadik <- stevilo_vinogradov.sadik[c(1,2,3,4)]
 
 #Nagib vinogradov po vinorodnih deželah in okoliših
 
@@ -240,7 +240,6 @@ ekolosko[[3]] <- parse_number(ekolosko[[3]])
 
 
 #površina in število trsnic, matičnjakov in vinogradov (primerjava)
-#n_max ne dela pravilno
 
 imena.trsnice <- c("Meritev", "Leto", "Vinorodna.dezela", "Vinogradi", "Trsnice", "Matičnjaki", "Namizno grozdje")
 
@@ -252,17 +251,15 @@ trsnice.maticnjaki <- read_csv2("podatki/trsnice.csv",
                                na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
 
 
-trsnice.maticnjaki[[3]] <- NULL
-
 tidy_trsnice.maticnjaki <- arrange(gather(trsnice.maticnjaki,
                                           key =  "Pridelava" ,
                                           value = "Vrednost" ,
                                           -1, -2, -3),
                                    Meritev)%>%
   mutate(Vrednost = parse_number(Vrednost))
-
+###NAJDI NAPAKO V NASLEDNJI VRSTICI
 stidy_trsnice.maticnjaki <- dcast(tidy_trsnice.maticnjaki,
-                                  Leto + Vinorodna.dezela + Velikostni.razred ~ Meritev)
+                                  Leto + Vinorodna.dezela + Pridelava ~ Meritev)
 
 
 #slovenske sorte
