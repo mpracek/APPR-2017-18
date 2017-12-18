@@ -2,12 +2,12 @@
 title: "Vinogradništvo v Sloveniji"
 author: "Martin Praček"
 output:
-  html_document: default
   pdf_document:
     includes:
       in_header: lib/styles.sty
     latex_engine: xelatex
-#runtime: shiny
+  html_document: default
+runtime: shiny
 ---
 
 ```{r setup, echo=FALSE, results='hide', message=FALSE}
@@ -33,14 +33,8 @@ source("uvoz/uvoz.r", encoding = "CP1250")
 
 
 1.
-Prvi del je prvi del mojega raziskovanja, torej vinogradi po zunanjem izgledu. Moja tabela bo imela stolpce, 
--`Leto`  
--`Vinorodna dežela` - vinogradništvo bom razdelil na 4 regije, Primorsko, Podravsko, Posavsko    ter zunaj vinorodnih območij,
-- `zatravljenost` - meritev: površina, razdeljeno na zatravljeno in nezatravljeno(število),
-- `nagib` - meritev: površina, razdeljeno na različne stopnje nagibov površja(število),
-- `pridelovalci` - meritev: število pridelovalcev(število),
-- `število vinogradov` - meritev: število vinogradov (število),
-- `podlaga` - meritev: število trt, ki rastejo na določeni podlagi(število),
+Prvi del je prvi del mojega raziskovanja, torej vinogradi po zunanjem izgledu. Tukaj bom imel več tabel, vse bodo vsebovale stoplca `Leto` in `Vinorodna.dezela`kjer bom Slovenijo razdelil na 4 regije, Primorsko, Podravsko, Posavsko ter zunaj vinorodnih območij. 
+V vseh tabelah bodo ostali stolpci `Meritev`, ki v vsaki tabeli drugačen, saj bo poimenovan
 
  
   
