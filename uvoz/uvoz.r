@@ -36,6 +36,13 @@ tidy_stevilo_vinogradov.sadik <- arrange(gather(stevilo_vinogradov.sadik,
 stidy_stevilo_vinogradov.sadik <- dcast(tidy_stevilo_vinogradov.sadik,
                             Leto + Vinorodna.dezela + Velikostni.razred ~ Meritev)
 
+colnames(stidy_stevilo_vinogradov.sadik) <- c('Leto','Vinorodna.dezela',
+                                              'Velikostni.razred',
+                                              'Povrsina',
+                                              'Stevilo.sadik',
+                                              'Stevilo.vinogradov')
+
+
 zmanjsan_stevilo_vinogradov.sadik <- stevilo_vinogradov.sadik[c(1,2,3,4)]
 
 #Nagib vinogradov po vinorodnih deželah in okoliših
@@ -65,6 +72,11 @@ tidy_nagib <- arrange(gather(nagib,
 stidy_nagib <- dcast(tidy_nagib,
                      Leto + Vinorodna.dezela + Nagib ~ Meritev)
 
+colnames(stidy_nagib) <- c('Leto','Vinorodna.dezela',
+                           'Nagib','Povrsina',
+                           'Stevilo.vinogradov')
+
+
 #površina, število vinogradov in sadik glede na zatravljenost
 
 imena.zatravljenost <- c("Meritev", "Leto",
@@ -90,6 +102,11 @@ tidy_zatravljenost <- arrange(gather(zatravljenost,
 
 stidy_zatravljenost <- dcast(tidy_zatravljenost,
                              Leto + Vinorodna.dezela + Zatravljenost ~ Meritev)
+
+colnames(stidy_zatravljenost) <- c('Leto','Vinorodna.dezela',
+                                   'Zatravljenost','Povrsina',
+                                   'Stevilo.sadik','Stevilo.vinogradov')
+
 
 #podlaga na kateri rastejo trte 2009 in 2015
 
@@ -120,6 +137,9 @@ tidy_podlaga <- arrange(gather(podlaga,
 
 stidy_podlaga <- dcast(tidy_podlaga,
                        Leto + Vinorodna.dezela + Vrsta.podlage ~ Meritev)
+
+colnames(stidy_podlaga) <- c('Leto','Vinorodna.dezela','Nacin.gojenja','Povrsina','Stevilo.sadik')
+
 
 #način gojenja trt
 
@@ -153,6 +173,8 @@ tidy_gojenje <- arrange(gather(gojenje,
 
 stidy_gojenje <- dcast(tidy_gojenje,
                        Leto + Vinorodna.dezela + Nacin.gojenja ~ Meritev)
+
+colnames(stidy_gojenje) <- c('Leto','Vinorodna.dezela','Nacin.gojenja','Povrsina','Stevilo.sadik')
 
 
 ###
@@ -196,6 +218,9 @@ tidy_sorte.povrsina_sadike <- arrange(gather(sorte.povrsina_sadike,
 stidy_sorte.povrsina_sadike <- dcast(tidy_sorte.povrsina_sadike,
                        Leto + Vinorodna.dezela + Sorta ~ Meritev)
 
+colnames(stidy_sorte.povrsina_sadike) <- c('Leto','Vinorodna.dezela','Sorta','Povrsina','Stevilo.sadik')
+
+
 #Starost trt po površini in številu sadik
 
 imena.starost.povrsina <- c("Meritev","Leto","Vinorodna.dezela",
@@ -222,6 +247,7 @@ tidy_starost.povrsina_sadike <- arrange(gather(starost.povrsina_sadike,
 stidy_starost.povrsina_sadike <- dcast(tidy_starost.povrsina_sadike,
                                      Leto + Vinorodna.dezela + Starost ~ Meritev)
 
+colnames(stidy_starost.povrsina_sadike) <- c('Leto','Vinorodna.dezela','Starost','Povrsina','Stevilo.sadik')
 
 #Primerjalni del
 #ekološka pridelava (primerjava)
@@ -237,6 +263,7 @@ ekolosko <- read_csv2("podatki/raba_ekoloskih_zemljics.csv",
                      na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
 
 ekolosko[[3]] <- parse_number(ekolosko[[3]])
+
 
 
 #površina in število trsnic, matičnjakov in vinogradov (primerjava)
@@ -260,6 +287,7 @@ tidy_trsnice.maticnjaki <- arrange(gather(trsnice.maticnjaki,
 
 stidy_trsnice.maticnjaki <- dcast(tidy_trsnice.maticnjaki,
                                   Leto + Vinorodna.dezela + Pridelava ~ Meritev)
+colnames(stidy_trsnice.maticnjaki) <- c('Leto','Vinorodna.dezela','Pridelava','Povrsina','Stevilo.nasadov')
 
 
 #slovenske sorte
@@ -289,8 +317,10 @@ rdece.sorte$'All Synonyms' <- NULL
 rdece.sorte$'Barva' = 'Rdeca'
 colnames(rdece.sorte) <- c('Ime','Drzava.izvora','Barva')
 
-sorte <- rbind(bele.sorte, rdece.sorte)
+sorte <- rbind(bele.sorte, rdece.sorte) 
+sorte <- na.omit(sorte, Drzava.izvora)
 
 drzave <- sorte$'Drzava.izvora'
  
-veckratnik <- grep()
+#veckratnik <- grep()
+
