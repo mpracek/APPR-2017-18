@@ -296,7 +296,7 @@ slovenske.sorte$`Variety number VIVC` <- NULL
 slovenske.sorte$Species <- NULL
 
 # Funkcija, ki uvozi podatke o vinskih sortah iz Wikipedije
-# Vire sem prenesel 13.12.2017 
+# Vire sem prenesel 19.12.2017 
 link <- "https://en.wikipedia.org/wiki/List_of_grape_varieties"
 stran <- html_session(link) %>% read_html()
 
@@ -318,7 +318,9 @@ rdece.sorte$'Barva' = 'Rdeca'
 colnames(rdece.sorte) <- c('Ime','Drzava.izvora','Barva')
 
 sorte <- rbind(bele.sorte, rdece.sorte) 
-sorte <- na.omit(sorte, Drzava.izvora)
+a <- data.frame(Drzava.izvora=unlist(strsplit(as.character(sorte$Drzava.izvora)," , ")))
+grep(',', sorte$'Drzava.izvora')
+
 
 drzave <- sorte$'Drzava.izvora'
  
