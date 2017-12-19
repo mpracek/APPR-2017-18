@@ -277,10 +277,20 @@ bele.sorte$Pedigree <- NULL
 bele.sorte$`Hectares cultivated (Year)` <- NULL
 bele.sorte$'Year of introduction' <- NULL
 bele.sorte$'All Synonyms' <- NULL
+bele.sorte$'Barva' = 'Bela'
+colnames(bele.sorte) <- c('Ime','Drzava.izvora','Barva')
+
 
 rdece.sorte <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>%.[[1]] %>% html_table(dec = ",")
 rdece.sorte$Pedigree <- NULL
 rdece.sorte$`Hectares cultivated (Year)` <- NULL
 rdece.sorte$'Year of introduction' <- NULL
 rdece.sorte$'All Synonyms' <- NULL
+rdece.sorte$'Barva' = 'Rdeca'
+colnames(rdece.sorte) <- c('Ime','Drzava.izvora','Barva')
 
+sorte <- rbind(bele.sorte, rdece.sorte)
+
+drzave <- sorte$'Drzava.izvora'
+ 
+veckratnik <- grep()
