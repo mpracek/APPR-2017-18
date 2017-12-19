@@ -318,11 +318,18 @@ rdece.sorte$'Barva' = 'Rdeca'
 colnames(rdece.sorte) <- c('Ime','Drzava.izvora','Barva')
 
 sorte <- rbind(bele.sorte, rdece.sorte) 
-a <- data.frame(Drzava.izvora=unlist(strsplit(as.character(sorte$Drzava.izvora)," , ")))
-grep(',', sorte$'Drzava.izvora')
+# a <- data.frame(Drzava.izvora=unlist(strsplit(as.character(sorte$Drzava.izvora)," , ")))
+# grep(',', sorte$'Drzava.izvora')
+# 
+# 
+# drzave <- sorte$'Drzava.izvora'
+#  
+# #veckratnik <- grep()
 
-
-drzave <- sorte$'Drzava.izvora'
- 
-#veckratnik <- grep()
-
+dvojni <- grep((",")|("("), sorte$'Drzava.izvora')
+sorte <- apply(sorte[dvojni, ], 1, . %>% as.list() %>%
+ {data.frame(Ime = .$Ime, Drzava.izvora = .$Drzava.izvora,
+             Barva = .$Barva %>%
+               strapplyc((("*,*")|("*(*")) %>% unlist(),
+               unlist() })%>%
+  bind_rows() %>% rbind(discipline[-dvojni, ]) %>% arrange(spol, disciplina)
