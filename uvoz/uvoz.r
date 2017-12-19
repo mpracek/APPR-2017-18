@@ -257,7 +257,7 @@ tidy_trsnice.maticnjaki <- arrange(gather(trsnice.maticnjaki,
                                           -1, -2, -3),
                                    Meritev)%>%
   mutate(Vrednost = parse_number(Vrednost))
-###NAJDI NAPAKO V NASLEDNJI VRSTICI
+
 stidy_trsnice.maticnjaki <- dcast(tidy_trsnice.maticnjaki,
                                   Leto + Vinorodna.dezela + Pridelava ~ Meritev)
 
