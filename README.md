@@ -64,3 +64,4 @@ Za zagon tega vzorca je potrebno namestiti sledeče pakete za R:
 * `ggplot2` - za izrisovanje grafov
 * `extrafont` - za pravilen prikaz šumnikov (neobvezno)
 
+
