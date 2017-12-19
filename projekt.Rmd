@@ -27,7 +27,7 @@ Za svojo projektno nalogo bom raziskal vinogradništvo v Sloveniji
 
 # Obdelava, uvoz in čiščenje podatkov
 
-```{r uvoz, echo=FALSE, message=FALSE, warning=FALSE}
+```{r uvoz, echo=FALSE, message=FALSE, warning = FALSE}
 source("uvoz/uvoz.r", encoding = "CP1250")
 ```
 
@@ -49,7 +49,7 @@ V drugem delu raziskovanja bom pogledal pridelavo grozdja, sicer pa bodo moje ta
   - Tabela podpornih sistemov.
 
 
-```{r histogram, echo=FALSE, message=FALSE, fig.align='center', }
+```{ }
 
 ```
 
@@ -62,7 +62,7 @@ source("vizualizacija/vizualizacija.r", encoding = "UTF-8")
 ```
 
 
-```{r zemljevid, echo=FALSE, fig.align='center', fig.cap='Zemljevid povprečnega števila otrok v družini'}
+```{}
 
 ```
 
