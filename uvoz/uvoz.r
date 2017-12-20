@@ -333,3 +333,5 @@ sorte <- apply(sorte[dvojni, ], 1, . %>% as.list() %>%
                strapplyc((("*,*")|("*(*")) %>% unlist(),
                unlist() })%>%
   bind_rows() %>% rbind(discipline[-dvojni, ]) %>% arrange(spol, disciplina)
+
+  
