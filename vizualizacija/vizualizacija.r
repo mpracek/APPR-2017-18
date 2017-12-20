@@ -1,5 +1,8 @@
 # 3. faza: Vizualizacija podatkov
 
+eko_sprememba <- ggplot(ekolosko) +aes(x = Leto, y = Vinogradi) + geom_line()
+nagibi <- stidy_nagib$Vinorodna.dezela 
+nagibi_slika <- ggplot(stidy_nagib) + aes(x=Leto) +geom_line()
 
 
 # Uvozimo zemljevid.
