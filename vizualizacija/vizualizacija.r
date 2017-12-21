@@ -71,6 +71,13 @@ sorte_slika_stevilo.sadik <- ggplot(stidy_sorte.povrsina_sadike) +
   geom_line()
 print(sorte_slika_stevilo.sadik)
 
+###DELEŽ SADIK DOLOČENE SORTE
+# delez_sadik <- ggplot(stidy_sorte.povrsina_sadike)+
+#   aes(x = group_by("Sorta") %>% sum(stevilo.sadik),
+#       y = Sorta) +
+#   coord_polar()
+# print(delez_sadik)
+
 #Sorte po starosti, površini in sadikah
 starost_slika_povrsina <- ggplot(stidy_starost.povrsina_sadike) + 
   aes(x = Povrsina,
