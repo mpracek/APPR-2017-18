@@ -326,12 +326,13 @@ sorte <- rbind(bele.sorte, rdece.sorte)
 #  
 # #veckratnik <- grep()
 
-dvojni <- grep((",")|("("), sorte$'Drzava.izvora')
-sorte <- apply(sorte[dvojni, ], 1, . %>% as.list() %>%
- {data.frame(Ime = .$Ime, Drzava.izvora = .$Drzava.izvora,
-             Barva = .$Barva %>%
-               strapplyc((("*,*")|("*(*")) %>% unlist(),
-               unlist() })%>%
-  bind_rows() %>% rbind(discipline[-dvojni, ]) %>% arrange(spol, disciplina)
+dvojni <- grep(("("), sorte$Drzava.izvora)
+sorte1 <- apply(sorte[dvojni, ], 1, . %>% as.list() %>%
+{ data.frame(Ime = .$Ime, 
+             Drzava.izvora = .$Drzava.izvora %>%
+               strapplyc() %>% unlist(),
+             Barva = .$Barva %>% unlist(), 
+             stringsAsFactors = FALSE) }) %>%
+  bind_rows() %>% rbind(sorte[-dvojni, ]) 
 
   
