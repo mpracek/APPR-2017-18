@@ -72,11 +72,12 @@ sorte_slika_stevilo.sadik <- ggplot(stidy_sorte.povrsina_sadike) +
 print(sorte_slika_stevilo.sadik)
 
 ###DELEŽ SADIK DOLOČENE SORTE
-# delez_sadik <- ggplot(stidy_sorte.povrsina_sadike)+
-#   aes(x = group_by("Sorta") %>% sum(stevilo.sadik),
-#       y = Sorta) +
-#   coord_polar()
-# print(delez_sadik)
+#ne dela pravilno? Error in FUN(X[[i]], ...) : only defined on a data frame with all numeric variables
+delez_sadik <- ggplot(stidy_sorte.povrsina_sadike)+
+  aes(x = sum(group_by(stidy_sorte.povrsina_sadike, Sorta)),
+      y = Sorta) +
+  coord_polar()
+print(delez_sadik)
 
 #Sorte po starosti, površini in sadikah
 starost_slika_povrsina <- ggplot(stidy_starost.povrsina_sadike) + 
@@ -118,13 +119,6 @@ print(stevilo_slika_stevilo.sadik)
 eko_sprememba <- ggplot(ekolosko) + aes(x = Leto, y = Vinogradi) + geom_path()
 print(eko_sprememba)
 
-graf <- ggplot(ekolosko) +
-  aes(x = Leto, 
-      y = Vinogradi, 
-      color = Meritev) +
-  geom_point()
-print(graf)
-
 #Matičnjaki
 
 Povrsina_maticnjaki <- ggplot(stidy_trsnice.maticnjaki) + 
@@ -148,6 +142,18 @@ levels(zemljevid$OB_UIME) <- levels(zemljevid$OB_UIME) %>%
 zemljevid$OB_UIME <- factor(zemljevid$OB_UIME, levels = levels(obcine$obcina))
 zemljevid <- pretvori.zemljevid(zemljevid)
 
-# Izračunamo povprečno velikost družine
-povprecja <- druzine %>% group_by(obcina) %>%
-  summarise(povprecje = sum(velikost.druzine * stevilo.druzin) / sum(stevilo.druzin))
+# Povprečne velikosti
+povprecno.stevilo.vinogradov <- stidy_zatravljenost %>% group_by(Vinorodna.dezela) %>%
+  summarise(povp.vinograd = sum(Stevilo.vinogradov) / 4)
+
+povprecno.vinograd <- ggplot(povprecno.stevilo.vinogradov) + 
+  aes(x = Vinorodna.dezela,
+      y = povp.vinograd) +
+  geom_line()
+print(povprecno.vinograd)
+
+povprecno.stevilo.sadik <- stidy_zatravljenost %>% group_by(Vinorodna.dezela) %>%
+  summarise(povp.sadik = sum(Stevilo.sadik) /4)
+
+povprecna.povrsina <- stidy_zatravljenost %>% group_by(Vinorodna.dezela) %>%
+  summarise(povp.povrsina = sum(Povrsina) /4)
