@@ -5,10 +5,10 @@ shinyUI(fluidPage(
   titlePanel("Slovensko vinogradništvo"),
   
   tabsetPanel(
-      tabPanel("Velikost družine",
+      tabPanel("Vinogradi po sortah",
                DT::dataTableOutput("druzine")),
       
-      tabPanel("Število naselij",
+      tabPanel("Vinogradi po ostalih dejavnikih",
                sidebarPanel(
                   uiOutput("pokrajine")
                 ),
