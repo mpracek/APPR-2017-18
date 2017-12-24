@@ -28,7 +28,7 @@ Za svojo projektno nalogo bom raziskal vinogradništvo v Sloveniji
 # Obdelava, uvoz in čiščenje podatkov
 
 ```{r uvoz, echo=FALSE, message=FALSE, warning = FALSE}
-source("uvoz/uvoz.r", encoding = "CP1250")
+source("uvoz/uvoz.r", encoding = "UTF-8")
 ```
 
 
