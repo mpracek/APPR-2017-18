@@ -326,14 +326,19 @@ sorte <- rbind(bele.sorte, rdece.sorte)
 #  
 # #veckratnik <- grep()
 
-dvojni <- grep(("("), sorte$Drzava.izvora)
-sorte1 <- apply(sorte[dvojni, ], 1, . %>% as.list() %>%
-{data.frame(Ime = .$Ime,
-             Drzava.izvora = .$Drzava.izvora %>%
-               strapplyc() %>% unlist(),
-             Barva = .$Barva %>% unlist(),
-             stringsAsFactors = FALSE) }) %>%
-  bind_rows() %>% rbind(sorte[-dvojni, ])
+# dvojni <- grep(("("), sorte$Drzava.izvora)
+# sorte1 <- apply(sorte[dvojni, ], 1, . %>% as.list() %>%
+# {data.frame(Ime = .$Ime,
+#              Drzava.izvora = .$Drzava.izvora %>%
+#                strapplyc() %>% unlist(),
+#              Barva = .$Barva %>% unlist(),
+#              stringsAsFactors = FALSE) }) %>%
+#   bind_rows() %>% rbind(sorte[-dvojni, ])
+
+#Popolnoma vse sorte
+vse.sorte <- read_csv2("podatki/vivc_vse.csv")
+vse.sorte$`Variety number VIVC` <- NULL
+
 
 ### Povprečne velikosti
 povprecno.stevilo.vinogradov <- stidy_zatravljenost %>% group_by(Vinorodna.dezela) %>%

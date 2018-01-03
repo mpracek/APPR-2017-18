@@ -147,13 +147,22 @@ povprecno.stevilo.vinogradov <- stidy_zatravljenost %>% group_by(Vinorodna.dezel
   summarise(povp.vinograd = sum(Stevilo.vinogradov) / 4)
 
 povprecno.vinograd <- ggplot(povprecno.stevilo.vinogradov) + 
+  geom_bar(width = 1) +
   aes(x = Vinorodna.dezela,
-      y = povp.vinograd) +
-  geom_line()
+      fill = factor(povp.vinograd)) +
+  coord_polar() 
 print(povprecno.vinograd)
 
 povprecno.stevilo.sadik <- stidy_zatravljenost %>% group_by(Vinorodna.dezela) %>%
   summarise(povp.sadik = sum(Stevilo.sadik) /4)
+
+povprecno.sadike <- ggplot(povprecno.stevilo.sadik) + 
+  geom_bar() +
+  aes(x = Vinorodna.dezela,
+      fill = factor(povp.sadik)) +
+  coord_polar() 
+print(povprecno.sadike)
+
 
 povprecna.povrsina <- stidy_zatravljenost %>% group_by(Vinorodna.dezela) %>%
   summarise(povp.povrsina = sum(Povrsina) /4)
