@@ -111,6 +111,14 @@ stevilo_slika_stevilo.sadik <- ggplot(stidy_stevilo_vinogradov.sadik) +
   geom_line()
 print(stevilo_slika_stevilo.sadik)
 
+stidy_slika_stevilo_vinogradov <- ggplot(stidy_stevilo_vinogradov.sadik) + 
+  geom_col() +
+  aes(x = Vinorodna.dezela,
+      y = factor(povp.sadik)) +
+  coord_polar() 
+print(povprecno.sadike)
+
+
 ##
 #Dodatna analiza
 ##
@@ -147,22 +155,35 @@ povprecno.stevilo.vinogradov <- stidy_zatravljenost %>% group_by(Vinorodna.dezel
   summarise(povp.vinograd = sum(Stevilo.vinogradov) / 4)
 
 povprecno.vinograd <- ggplot(povprecno.stevilo.vinogradov) + 
-  geom_bar(width = 1) +
+  geom_col() +
   aes(x = Vinorodna.dezela,
-      fill = factor(povp.vinograd)) +
-  coord_polar() 
+      y = factor(povp.vinograd)) 
 print(povprecno.vinograd)
+
+
+#NEUPORABNO, A KOPIRAJ ZA TORTNI
+# povprecno.vinograd.torta <- ggplot(povprecno.stevilo.vinogradov) + 
+#   geom_col() +
+#   aes(x = Vinorodna.dezela,
+#       y = factor(povp.vinograd)) +
+#   coord_polar() 
+# print(povprecno.vinograd.torta)
 
 povprecno.stevilo.sadik <- stidy_zatravljenost %>% group_by(Vinorodna.dezela) %>%
   summarise(povp.sadik = sum(Stevilo.sadik) /4)
 
 povprecno.sadike <- ggplot(povprecno.stevilo.sadik) + 
-  geom_bar() +
+  geom_col() +
   aes(x = Vinorodna.dezela,
-      fill = factor(povp.sadik)) +
-  coord_polar() 
+      y = factor(povp.sadik))
 print(povprecno.sadike)
 
 
 povprecna.povrsina <- stidy_zatravljenost %>% group_by(Vinorodna.dezela) %>%
   summarise(povp.povrsina = sum(Povrsina) /4)
+
+povprecno.povrsina <- ggplot(povprecna.povrsina) + 
+  geom_col() +
+  aes(x = Vinorodna.dezela,
+      y = factor(povp.povrsina))
+print(povprecno.povrsina)
