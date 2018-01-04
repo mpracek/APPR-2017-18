@@ -344,6 +344,8 @@ vse.sorte <- read_csv2("podatki/vivc_vse.csv",
 vse.sorte$variety.number <- NULL
 
 
+
+
 ### Povprečne velikosti
 povprecno.stevilo.vinogradov <- stidy_zatravljenost %>% group_by(Vinorodna.dezela) %>%
   summarise(povp.vinograd = sum(Stevilo.vinogradov) / 4)

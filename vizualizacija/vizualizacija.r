@@ -4,7 +4,7 @@
 #Prvi del
 ##
 
-#Nagibi
+####Nagibi
 nagibi <- stidy_nagib$Vinorodna.dezela 
 nagibi_slika_povrsina <- ggplot(stidy_nagib) + 
   aes(x = Povrsina,
@@ -15,10 +15,11 @@ nagibi_slika_povrsina <- ggplot(stidy_nagib) +
   
 ##print(nagibi_slika_povrsina)
 
-#Gojenje
-gojenje_slika_povrsina <- ggplot(stidy_gojenje) + aes(x = Povrsina,
-                                                      y = Nacin.gojenja) +
-                                                geom_line()
+####Gojenje
+gojenje_slika_povrsina <- ggplot(stidy_gojenje) +
+  aes(x = Povrsina, 
+      y = Nacin.gojenja) +
+  geom_line()
 ##print(gojenje_slika_povrsina)
 
 gojenje_slika_stevilo.sadik <- ggplot(stidy_gojenje) + aes(x = Stevilo.sadik,
@@ -26,7 +27,7 @@ gojenje_slika_stevilo.sadik <- ggplot(stidy_gojenje) + aes(x = Stevilo.sadik,
   geom_line()
 ##print(gojenje_slika_stevilo.sadik)
 
-#Podlaga
+#####Podlaga
 podlaga_slika_povrsina <- ggplot(stidy_podlaga) + aes(x = Povrsina,
                                                       y = Nacin.gojenja) +
   geom_line()
@@ -37,7 +38,7 @@ podlaga_slika_stevilo.sadik <- ggplot(stidy_podlaga) + aes(x = Stevilo.sadik,
   geom_line()
 #print(podlaga_slika_stevilo.sadik)
 
-#Zatravljenost
+#####Zatravljenost
 
 zatravljenost_slika_povrsina <- ggplot(stidy_zatravljenost) + 
                                 aes(x = Povrsina,
@@ -61,7 +62,7 @@ zatravljenost_slika_stevilo.sadik <- ggplot(stidy_zatravljenost) +
 #Drugi del
 ##
 
-# Površina in sadike po sortah
+##### Površina in sadike po sortah
 
 sorte_slika_povrsina <- ggplot(stidy_sorte.povrsina_sadike) + 
   aes(x = Povrsina,
@@ -76,7 +77,6 @@ sorte_slika_stevilo.sadik <- ggplot(stidy_sorte.povrsina_sadike) +
 #print(sorte_slika_stevilo.sadik)
 
 ###DELEŽ SADIK DOLOČENE SORTE
-#ne dela pravilno? Error in FUN(X[[i]], ...) : only defined on a data frame with all numeric variables
 delez_sadik <- ggplot(stidy_sorte.povrsina_sadike)+
   aes(x = Vinorodna.dezela,
       y = Stevilo.sadik,
@@ -189,7 +189,8 @@ povprecno.povrsina <- ggplot(povprecna.povrsina) +
 sorte_drzave <- ggplot(vse.sorte) + 
   geom_bar() +
   aes(x = drzava.izvora) +
-  theme(axis.text.x = element_text(angle = 90 , vjust = 0.5, hjust = 1))
+  theme(axis.text.x = element_text(angle = 90 , vjust = 0.5, hjust = 1)) +
+  coord_polar()
 #print(sorte_drzave)
 
 #Delo z zemljevidom; število sort po državah sveta
