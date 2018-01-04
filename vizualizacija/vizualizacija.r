@@ -74,9 +74,9 @@ print(sorte_slika_stevilo.sadik)
 ###DELEŽ SADIK DOLOČENE SORTE
 #ne dela pravilno? Error in FUN(X[[i]], ...) : only defined on a data frame with all numeric variables
 delez_sadik <- ggplot(stidy_sorte.povrsina_sadike)+
-  aes(x = sum(group_by(stidy_sorte.povrsina_sadike, Sorta)),
-      y = Sorta) +
-  coord_polar()
+  aes(x = Vinorodna.dezela,
+      y = Stevilo.sadik,
+      fill = Sorta) + geom_col()
 print(delez_sadik)
 
 #Sorte po starosti, površini in sadikah
@@ -116,7 +116,7 @@ stidy_slika_stevilo_vinogradov <- ggplot(stidy_stevilo_vinogradov.sadik) +
   aes(x = Vinorodna.dezela,
       y = factor(povp.sadik)) +
   coord_polar() 
-print(povprecno.sadike)
+#print(povprecno.sadike)
 
 
 ##
@@ -143,12 +143,12 @@ print(stevilo_maticnjaki_nasadi)
 
 
 # Uvozimo zemljevid.
-zemljevid <- uvozi.zemljevid("http://baza.fmf.uni-lj.si/OB.zip",
-                             "OB/OB", encoding = "Windows-1250")
-levels(zemljevid$OB_UIME) <- levels(zemljevid$OB_UIME) %>%
-  { gsub("Slovenskih", "Slov.", .) } %>% { gsub("-", " - ", .) }
-zemljevid$OB_UIME <- factor(zemljevid$OB_UIME, levels = levels(obcine$obcina))
-zemljevid <- pretvori.zemljevid(zemljevid)
+# zemljevid <- uvozi.zemljevid("http://baza.fmf.uni-lj.si/OB.zip",
+#                              "OB/OB", encoding = "Windows-1250")
+# levels(zemljevid$OB_UIME) <- levels(zemljevid$OB_UIME) %>%
+#   { gsub("Slovenskih", "Slov.", .) } %>% { gsub("-", " - ", .) }
+# zemljevid$OB_UIME <- factor(zemljevid$OB_UIME, levels = levels(obcine$obcina))
+# zemljevid <- pretvori.zemljevid(zemljevid)
 
 # Povprečne velikosti
 povprecno.stevilo.vinogradov <- stidy_zatravljenost %>% group_by(Vinorodna.dezela) %>%
@@ -176,7 +176,7 @@ povprecno.sadike <- ggplot(povprecno.stevilo.sadik) +
   geom_col() +
   aes(x = Vinorodna.dezela,
       y = factor(povp.sadik))
-print(povprecno.sadike)
+#print(povprecno.sadike)
 
 
 povprecna.povrsina <- stidy_zatravljenost %>% group_by(Vinorodna.dezela) %>%
@@ -187,3 +187,12 @@ povprecno.povrsina <- ggplot(povprecna.povrsina) +
   aes(x = Vinorodna.dezela,
       y = factor(povp.povrsina))
 print(povprecno.povrsina)
+
+
+##Sorte po državah sveta
+
+sorte_drzave <- ggplot(vse.sorte) + 
+  geom_bar() +
+  aes(x = drzava.izvora) +
+  theme(axis.text.x = element_text(angle = 90 , vjust = 0.5, hjust = 1))
+print(sorte_drzave)
