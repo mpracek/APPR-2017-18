@@ -141,15 +141,6 @@ stevilo_maticnjaki_nasadi <- ggplot(stidy_trsnice.maticnjaki) +
   geom_line()
 print(stevilo_maticnjaki_nasadi)
 
-
-# Uvozimo zemljevid.
-# zemljevid <- uvozi.zemljevid("http://baza.fmf.uni-lj.si/OB.zip",
-#                              "OB/OB", encoding = "Windows-1250")
-# levels(zemljevid$OB_UIME) <- levels(zemljevid$OB_UIME) %>%
-#   { gsub("Slovenskih", "Slov.", .) } %>% { gsub("-", " - ", .) }
-# zemljevid$OB_UIME <- factor(zemljevid$OB_UIME, levels = levels(obcine$obcina))
-# zemljevid <- pretvori.zemljevid(zemljevid)
-
 # Povprečne velikosti
 povprecno.stevilo.vinogradov <- stidy_zatravljenost %>% group_by(Vinorodna.dezela) %>%
   summarise(povp.vinograd = sum(Stevilo.vinogradov) / 4)
@@ -196,3 +187,8 @@ sorte_drzave <- ggplot(vse.sorte) +
   aes(x = drzava.izvora) +
   theme(axis.text.x = element_text(angle = 90 , vjust = 0.5, hjust = 1))
 print(sorte_drzave)
+
+#Delo z zemljevidom; število sort po državah sveta
+zemljevid <- uvozi.zemljevid("http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/cultural/ne_110m_admin_0_map_units.zip",
+                             "ne_110m_admin_0_map_units", encoding = "UTF-8") %>%
+  pretvori.zemljevid()
