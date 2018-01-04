@@ -6,10 +6,14 @@
 
 #Nagibi
 nagibi <- stidy_nagib$Vinorodna.dezela 
-nagibi_slika_povrsina <- ggplot(stidy_nagib) + aes(x = Povrsina,
-                                                   y = Nagib) +
-                                             geom_line()
-print(nagibi_slika_povrsina)
+nagibi_slika_povrsina <- ggplot(stidy_nagib) + 
+  aes(x = Povrsina,
+      y = Nagib) +
+  geom_line() +
+  ggtitle("Povprečen nagib vinogradov")
+  
+  
+#print(nagibi_slika_povrsina)
 
 #Gojenje
 gojenje_slika_povrsina <- ggplot(stidy_gojenje) + aes(x = Povrsina,
