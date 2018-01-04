@@ -19,12 +19,12 @@ imena.stevilo.sadik <- c("Meritev","Leto","Vinorodna.dezela",
 
 
 stevilo_vinogradov.sadik <- read_csv2("podatki/povrsina,stevilo.vinograd,sadik.csv",
-                                               skip = 2,
-                                               locale = locale(encoding = "UTF-8",
-                                                               decimal_mark = ".",
-                                                               grouping_mark = ","),
-                                               col_names = imena.stevilo.sadik,
-                                               na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
+                                      skip = 2,
+                                      locale = locale(encoding = "UTF-8",
+                                                      decimal_mark = ".",
+                                                      grouping_mark = ","),
+                                      col_names = imena.stevilo.sadik,
+                                      na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
 
 tidy_stevilo_vinogradov.sadik <- arrange(gather(stevilo_vinogradov.sadik,
                                                 key =  "Velikostni.razred" ,
@@ -34,7 +34,7 @@ tidy_stevilo_vinogradov.sadik <- arrange(gather(stevilo_vinogradov.sadik,
   mutate(Vrednost = parse_number(Vrednost))
 
 stidy_stevilo_vinogradov.sadik <- dcast(tidy_stevilo_vinogradov.sadik,
-                            Leto + Vinorodna.dezela + Velikostni.razred ~ Meritev)
+                                        Leto + Vinorodna.dezela + Velikostni.razred ~ Meritev)
 
 colnames(stidy_stevilo_vinogradov.sadik) <- c('Leto','Vinorodna.dezela',
                                               'Velikostni.razred',
@@ -86,12 +86,12 @@ imena.zatravljenost <- c("Meritev", "Leto",
 
 
 zatravljenost <- read_csv2("podatki/zatravljenost.csv",
-                          skip = 2,
-                          locale = locale(encoding = "UTF-8",
-                                          decimal_mark = ".",
-                                          grouping_mark = ","),
-                          col_names = imena.zatravljenost,
-                          na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
+                           skip = 2,
+                           locale = locale(encoding = "UTF-8",
+                                           decimal_mark = ".",
+                                           grouping_mark = ","),
+                           col_names = imena.zatravljenost,
+                           na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
 
 tidy_zatravljenost <- arrange(gather(zatravljenost,
                                      key =  "Zatravljenost",
@@ -120,19 +120,19 @@ imena.podlaga <- c("Meritev","Leto","Vinorodna.dezela",
 
 
 podlaga <- read_csv2("podatki/podlaga.csv",
-                    skip = 2,
-                    locale = locale(encoding = "UTF-8",
-                                    decimal_mark = ".",
-                                    grouping_mark = ","),
-                    col_names = imena.podlaga,
-                    na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
+                     skip = 2,
+                     locale = locale(encoding = "UTF-8",
+                                     decimal_mark = ".",
+                                     grouping_mark = ","),
+                     col_names = imena.podlaga,
+                     na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
 
 
 tidy_podlaga <- arrange(gather(podlaga,
                                key =  "Vrsta.podlage" ,
                                value = "Vrednost" ,
                                -1, -2, -3),
-                       Meritev)%>%
+                        Meritev)%>%
   mutate(Vrednost = parse_number(Vrednost))
 
 stidy_podlaga <- dcast(tidy_podlaga,
@@ -155,13 +155,13 @@ imena.gojenje <- c("Meritev","Leto","Vinorodna.dezela",
 
 
 gojenje <- read_csv2("podatki/gojitvena_oblika.csv",
-                    skip = 2,
-                    locale = locale(encoding = "UTF-8",
-                                    decimal_mark = ".",
-                                    grouping_mark = ","),
-                    #n_max = Inf, ne izpiše vseh vrstic
-                    col_names = imena.gojenje,
-                    na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
+                     skip = 2,
+                     locale = locale(encoding = "UTF-8",
+                                     decimal_mark = ".",
+                                     grouping_mark = ","),
+                     #n_max = Inf, ne izpiše vseh vrstic
+                     col_names = imena.gojenje,
+                     na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
 
 
 tidy_gojenje <- arrange(gather(gojenje,
@@ -200,13 +200,13 @@ imena.sorte.povrsina <- c("Meritev","Leto","Vinorodna.dezela","Bele sorte- Beli 
 
 
 sorte.povrsina_sadike <- read_csv2("podatki/povrsina,sadik-sorte.csv",
-                                  skip = 2,
-                                  locale = locale(encoding = "UTF-8",
-                                                  decimal_mark = ".",
-                                                  grouping_mark = ","),
-                                  n_max = 27,
-                                  col_names = imena.sorte.povrsina,
-                                  na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
+                                   skip = 2,
+                                   locale = locale(encoding = "UTF-8",
+                                                   decimal_mark = ".",
+                                                   grouping_mark = ","),
+                                   n_max = 27,
+                                   col_names = imena.sorte.povrsina,
+                                   na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
 
 tidy_sorte.povrsina_sadike <- arrange(gather(sorte.povrsina_sadike,
                                              key =  "Sorta" ,
@@ -216,7 +216,7 @@ tidy_sorte.povrsina_sadike <- arrange(gather(sorte.povrsina_sadike,
   mutate(Vrednost = parse_number(Vrednost))
 
 stidy_sorte.povrsina_sadike <- dcast(tidy_sorte.povrsina_sadike,
-                       Leto + Vinorodna.dezela + Sorta ~ Meritev)
+                                     Leto + Vinorodna.dezela + Sorta ~ Meritev)
 
 colnames(stidy_sorte.povrsina_sadike) <- c('Leto','Vinorodna.dezela','Sorta','Povrsina','Stevilo.sadik')
 
@@ -230,12 +230,12 @@ imena.starost.povrsina <- c("Meritev","Leto","Vinorodna.dezela",
 
 
 starost.povrsina_sadike <- read_csv2("podatki/povrsina,sadike-starost.csv",
-                                    skip = 2,
-                                    locale = locale(encoding = "UTF-8",
-                                                    decimal_mark = ".",
-                                                    grouping_mark = ","),
-                                    col_names = imena.starost.povrsina,
-                                    na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
+                                     skip = 2,
+                                     locale = locale(encoding = "UTF-8",
+                                                     decimal_mark = ".",
+                                                     grouping_mark = ","),
+                                     col_names = imena.starost.povrsina,
+                                     na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
 
 tidy_starost.povrsina_sadike <- arrange(gather(starost.povrsina_sadike,
                                                key =  "Starost" ,
@@ -245,7 +245,7 @@ tidy_starost.povrsina_sadike <- arrange(gather(starost.povrsina_sadike,
   mutate(Vrednost = parse_number(Vrednost))
 
 stidy_starost.povrsina_sadike <- dcast(tidy_starost.povrsina_sadike,
-                                     Leto + Vinorodna.dezela + Starost ~ Meritev)
+                                       Leto + Vinorodna.dezela + Starost ~ Meritev)
 
 colnames(stidy_starost.povrsina_sadike) <- c('Leto','Vinorodna.dezela','Starost','Povrsina','Stevilo.sadik')
 
@@ -253,14 +253,14 @@ colnames(stidy_starost.povrsina_sadike) <- c('Leto','Vinorodna.dezela','Starost'
 #ekološka pridelava (primerjava)
 
 imena.ekolosko <- c("Meritev","Leto","Vinogradi")
-  
+
 ekolosko <- read_csv2("podatki/raba_ekoloskih_zemljics.csv", 
-                     skip = 4,
-                     locale = locale(encoding = "UTF-8",
-                                     decimal_mark = ".",
-                                     grouping_mark = ","),
-                     col_names = imena.ekolosko,
-                     na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
+                      skip = 4,
+                      locale = locale(encoding = "UTF-8",
+                                      decimal_mark = ".",
+                                      grouping_mark = ","),
+                      col_names = imena.ekolosko,
+                      na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
 
 ekolosko[[3]] <- parse_number(ekolosko[[3]])
 
@@ -271,11 +271,11 @@ ekolosko[[3]] <- parse_number(ekolosko[[3]])
 imena.trsnice <- c("Meritev", "Leto", "Vinorodna.dezela", "Vinogradi", "Trsnice", "Matičnjaki", "Namizno grozdje")
 
 trsnice.maticnjaki <- read_csv2("podatki/trsnice.csv",
-                               skip = 2,
-                               locale = locale(encoding = "UTF-8"),
-                               n_max = 26,
-                               col_names = imena.trsnice,
-                               na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
+                                skip = 2,
+                                locale = locale(encoding = "UTF-8"),
+                                n_max = 26,
+                                col_names = imena.trsnice,
+                                na = c("", '-', "z")) %>% fill(1:2) %>% drop_na(3)
 
 
 tidy_trsnice.maticnjaki <- arrange(gather(trsnice.maticnjaki,
@@ -297,6 +297,7 @@ slovenske.sorte$Species <- NULL
 
 # Funkcija, ki uvozi podatke o vinskih sortah iz Wikipedije
 # Vire sem prenesel 19.12.2017 
+#Zaradi nepravilnosti podatkov te datoteke nisem uporabil
 link <- "https://en.wikipedia.org/wiki/List_of_grape_varieties"
 stran <- html_session(link) %>% read_html()
 
@@ -336,8 +337,11 @@ sorte <- rbind(bele.sorte, rdece.sorte)
 #   bind_rows() %>% rbind(sorte[-dvojni, ])
 
 #Popolnoma vse sorte
-vse.sorte <- read_csv2("podatki/vivc_vse.csv")
-vse.sorte$`Variety number VIVC` <- NULL
+imena.drzave <- c("ime", "barva","variety.number" ,"drzava.izvora")
+vse.sorte <- read_csv2("podatki/vivc_vse.csv",
+                       col_names = imena.drzave,
+                       skip = 1)
+vse.sorte$variety.number <- NULL
 
 
 ### Povprečne velikosti
@@ -349,6 +353,3 @@ povprecno.stevilo.sadik <- stidy_zatravljenost %>% group_by(Vinorodna.dezela) %>
 
 povprecna.povrsina <- stidy_zatravljenost %>% group_by(Vinorodna.dezela) %>%
   summarise(povp.povrsina = sum(Povrsina) /4)
-
-
-  
