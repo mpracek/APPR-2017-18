@@ -83,7 +83,7 @@ delez_sadik <- ggplot(stidy_sorte.povrsina_sadike)+
       fill = Sorta) + geom_col()
 #print(delez_sadik)
 
-#Sorte po starosti, površini in sadikah
+#####Sorte po starosti, površini in sadikah
 starost_slika_povrsina <- ggplot(stidy_starost.povrsina_sadike) + 
   aes(x = Povrsina,
       y = Starost) +
@@ -197,3 +197,4 @@ sorte_drzave <- ggplot(vse.sorte) +
 zemljevid <- uvozi.zemljevid("http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/cultural/ne_110m_admin_0_map_units.zip",
                              "ne_110m_admin_0_map_units", encoding = "UTF-8") %>%
   pretvori.zemljevid()
+#uporabi ignore.case() za združitev vse.sorte in zemljevidi
