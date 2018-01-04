@@ -55,3 +55,4 @@ V drugem delu raziskovanja bom pogledal pridelavo grozdja, sicer pa bodo moje ta
 source("vizualizacija/vizualizacija.r", encoding = "UTF-8")
 ```
 
+Da bi dobil pravo sliko o tem, kakšni so slovenski vinogradi, moramo upoštevati različne vidike.
