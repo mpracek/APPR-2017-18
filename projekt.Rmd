@@ -20,7 +20,7 @@ source("lib/libraries.r", encoding = "UTF-8")
 
 # Izbira teme
 
-Za svojo projektno nalogo bom raziskal vinogradništvo v Sloveniji
+Za svojo projektno nalogo bom raziskal vinogradništvo v Sloveniji. Zanimalo me bo kakšni so vinogradi, ki jih imamo v Sloveniji, ter katere sorte gojimo. Da bom bolje predstavil položaj slovenskega vinogradništva v svetu bom pogledal število avtohtonih sort na državo.
 
 ***
 
@@ -55,4 +55,11 @@ V drugem delu raziskovanja bom pogledal pridelavo grozdja, sicer pa bodo moje ta
 source("vizualizacija/vizualizacija.r", encoding = "UTF-8")
 ```
 
-Da bi dobil pravo sliko o tem, kakšni so slovenski vinogradi, moramo upoštevati različne vidike.
+Preden sploh pogledamo stanje v slovenskih vinogradih, moramo pogledati pomen slovenskega vinogradništva v svetu. Zato sem pripravil zemljevid ki prikazuje količino avtohtonih sort po sortah v svetu.
+
+
+```{r,echo=FALSE,message=FALSE}
+print(zemljevid.drzave)
+```
+
+Na tem zemljevidu lahko vidimo, da je Slovenija po svoji raznolikosti.
