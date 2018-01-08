@@ -190,11 +190,30 @@ sorte_drzave <- ggplot(vse.sorte) +
   geom_bar() +
   aes(x = drzava.izvora) +
   theme(axis.text.x = element_text(angle = 90 , vjust = 0.5, hjust = 1)) +
-  coord_polar()
+  geom_bar()
 #print(sorte_drzave)
+#Število sort po državah sveta
+
+
+stevilo_sort <- vse.sorte %>% sum(group_by(drzava.izvora)) #%>%
+                #summarise(st_sort = length(unique()))
+
 
 #Delo z zemljevidom; število sort po državah sveta
 zemljevid <- uvozi.zemljevid("http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/cultural/ne_110m_admin_0_map_units.zip",
                              "ne_110m_admin_0_map_units", encoding = "UTF-8") %>%
   pretvori.zemljevid()
-#uporabi ignore.case() za združitev vse.sorte in zemljevidi
+
+# #                                 
+zemljevid.drzave <- ggplot() +
+  geom_polygon(data = left_join(zemljevid, stevilo_sort, 
+                                by = c("NAME_LONG" = "drzava.izvora")), 
+               aes(x = long, y = lat, group = group, fill = st_sort), 
+               color = "black") +
+  # geom_text(data = inner_join(zemljevid, stevilo_sort, by = c("NAME_LONG" = "drzava.izvora")) %>%
+  #                          group_by(NAME_LONG, REGION_WB) %>%
+  #                          summarise(avg_long = mean(long), avg_lat = mean(lat)),
+  #                        aes(x = avg_long, y = avg_lat, label = NAME_LONG), color = "red") +
+               ggtitle("Zemljevid sveta") + xlab("") + ylab("") +
+               guides(fill = guide_colorbar(title = "Število avtohtonih sort"))
+
