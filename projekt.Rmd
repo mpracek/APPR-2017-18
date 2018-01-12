@@ -32,12 +32,12 @@ source("uvoz/uvoz.r", encoding = "UTF-8")
 
 Svoje raziskovanje sem začel z zunanjim izgledom vinogradov. Tu sem pridobil tri tabele, in sicer `stidy_gojenje`, `stidy_nagib`,`stidy_podlaga` ter `stidy_zatravljenost`, ki je v poročilo dodana kot primer tabele.  
 Vse te tabele imajo podobno izgradnjo;
-    *Prvi stolpec je stolpec `leto`
-    *Drugi stolpec je stolpec `vinorodna.dezela`
-    *Tretji stolpec je opisne spremenljivke, v podanem primeru je to `zatravljenost`
-    *V nadaljnih stolpcih pa se nahajajo meritve: + `povrsina`,
-                                                  + `stevilo.sadik`
-                                                  + `stevilo.vinogradov`
+    (@) Prvi stolpec je stolpec `leto`
+    (@) Drugi stolpec je stolpec `vinorodna.dezela`
+    (@) Tretji stolpec je opisne spremenljivke, v podanem primeru je to `zatravljenost`
+    (@) V nadaljnih stolpcih pa se nahajajo meritve: i) `povrsina`,
+                                                  i) `stevilo.sadik`
+                                                  i) `stevilo.vinogradov`
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 kable(stidy_zatravljenost, digits = 10)
 ```
@@ -58,9 +58,28 @@ Preden si pogledamo stanje v slovenskih vinogradih, si poglejmo, kaj sploh pomen
 ```{r,echo=FALSE,message=FALSE}
 print(zemljevid.drzave)
 ```
+
 Vinogradništvo, ki je kot vidimo po svetu zelo razširjeno, je prav v Evropi najbogatejše.
+
 Slovenija v tem ni izjema, saj lahko vidimo, da je število avtohtonih sort podobno kot je v ostalih sosednjih državah z izjemo Italije, ki ima v sistemu [VIVC](www.vivc.de) vpisanih največ sort.
-```{r,echo=FALSE,message=FALSE}
+
+```{r,echo=FALSE,message=FALSE, warning=FALSE}
 print(zemljevid.evropa)
+```
+
+Slovensko vinogradništvo s 27 avtohtonimi sortami ne predstavlja posebne izjeme v svetovnem oziroma evropskem merilu. Manjše število avtohtonih sort le poveča pritisk na njihovo ohranitev, zaradi česar pričakujem, da se bodo vsaj nekatere izmed teh sort pokazale med najpogostejšimi sortami.
+
+Po 
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+print(sorte.slika.point)
+```
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+print(eko_sprememba)
+```
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+print(graf_napovedi)
 ```
 

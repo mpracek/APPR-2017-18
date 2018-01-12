@@ -68,6 +68,14 @@ sorte_slika_povrsina <- ggplot(stidy_sorte.povrsina_sadike) +
   aes(x = Povrsina,
       y = Sorta) +
   geom_line()
+
+#Sorte point graf
+sorte.slika.point <- ggplot(stidy_sorte.povrsina_sadike) + 
+  aes(x = Povrsina,
+      y = Stevilo.sadik,
+      col = Sorta) +
+  geom_point()
+
 #print(sorte_slika_povrsina)
 
 sorte_slika_stevilo.sadik <- ggplot(stidy_sorte.povrsina_sadike) + 
@@ -128,8 +136,20 @@ stidy_slika_stevilo_vinogradov <- ggplot(stidy_stevilo_vinogradov.sadik) +
 ##
 
 #ekološka predelava
-eko_sprememba <- ggplot(ekolosko) + aes(x = Leto, y = Vinogradi) + geom_path()
+eko_sprememba <- ggplot(ekolosko) + aes(x = Leto,
+                                        y = Vinogradi,
+                                        col = Meritev) + 
+  geom_path() +
+  geom_smooth(method=lm)
 #print(eko_sprememba)
+###Napoved spremembe
+napoved.ekolosko <- lm(Vinogradi ~ Leto , data=ekolosko)
+zanima.me <- data.frame(Leto=c(2017:2025))
+predict(napoved.ekolosko, zanima.me)
+napoved <- zanima.me %>% mutate(st.vinogradov=predict(napoved.ekolosko, .))
+
+graf_napovedi <- ggplot(napoved) +
+  aes(x = Leto, y = st.vinogradov) + geom_line()
 
 #Matičnjaki
 
