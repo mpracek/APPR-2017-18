@@ -75,8 +75,12 @@ sorte.slika.point <- ggplot(stidy_sorte.povrsina_sadike) +
   aes(x = Povrsina,
       y = Stevilo.sadik,
       col = Sorta) +
-  geom_point()
+  geom_point() 
 
+sorte.slika.line <- ggplot(stidy_sorte.povrsina_sadike) + 
+  aes(x = Povrsina,
+      y = Stevilo.sadik) +
+  geom_point() + geom_smooth(method=lm)
 #print(sorte_slika_povrsina)
 
 sorte_slika_stevilo.sadik <- ggplot(stidy_sorte.povrsina_sadike) + 
