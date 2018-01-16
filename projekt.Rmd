@@ -32,12 +32,12 @@ source("uvoz/uvoz.r", encoding = "UTF-8")
 
 Svoje raziskovanje sem začel z zunanjim izgledom vinogradov. Tu sem pridobil tri tabele, in sicer `stidy_gojenje`, `stidy_nagib`,`stidy_podlaga` ter `stidy_zatravljenost`, ki je v poročilo dodana kot primer tabele.  
 Vse te tabele imajo podobno izgradnjo;
-    (@) Prvi stolpec je stolpec `leto`
-    (@) Drugi stolpec je stolpec `vinorodna.dezela`
-    (@) Tretji stolpec je opisne spremenljivke, v podanem primeru je to `zatravljenost`
-    (@) V nadaljnih stolpcih pa se nahajajo meritve: i) `povrsina`,
-                                                  i) `stevilo.sadik`
-                                                  i) `stevilo.vinogradov`
+    1. Prvi stolpec je stolpec `leto`
+    2. Drugi stolpec je stolpec `vinorodna.dezela`
+    3. Tretji stolpec je opisne spremenljivke, v podanem primeru je to `zatravljenost`
+    4. V nadaljnih stolpcih pa se nahajajo meritve: i) `povrsina`,
+                                                  ii) `stevilo.sadik`
+                                                  iii) `stevilo.vinogradov`
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 kable(stidy_zatravljenost, digits = 10)
 ```
@@ -69,17 +69,32 @@ print(zemljevid.evropa)
 
 Slovensko vinogradništvo s 27 avtohtonimi sortami ne predstavlja posebne izjeme v svetovnem oziroma evropskem merilu. Manjše število avtohtonih sort le poveča pritisk na njihovo ohranitev, zaradi česar pričakujem, da se bodo vsaj nekatere izmed teh sort pokazale med najpogostejšimi sortami.
 
-Po 
+Analizo vinogradništva v Sloveniji sem začel z dejavniki, ki jih posameznik opazi takoj, ko stopi v vinograd, torej z nagnjenostjo površja, načinom gojenja, ter zatravljenostjo, temu pa sem dodal še analizo trtne podlage, saj gre za zelo pomemben dejavnik pri rasti trte.
+
+Pri tem se je izkazalo, da je največ vinogradov med 5% in 30% naklona, kar ni preveč veliko presenečenje, medtem ko me je osebno bolj presenetilo, da je dvojni guyot bolj pogost kot enojni guyot.
+![Tipi gojenja](slike/guyot.jpg)
+
+Podatek, ki je meni zanimiv in skoraj žalosten je to, da za skoraj 50% trtnih sadik ni podatka, na kakšni podlagi rastejo. 
+Glede na to, da je kakovost pridelave grozdja in posledično vina zelo odvisna od trtne podlage.
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+print(podlaga_slika_povrsina)
+```
+
+Po tem sem se začel ukvarjati z drugim delom moje analize.Takoj na zaačetku sem si želel odgovoriti na vprašanje, ali je med najpogostejšimi slovenskimi sortami res kakšna izmed tistih 27 slovenskih avtohtonih sort.
 
 ```{r,echo=FALSE,message=FALSE,warning=FALSE}
 print(sorte.slika.point)
 ```
 
+Izkazalo se je, da sta med 24 najpogostejšimi sortami le dve sorti, ki sta v Sloveniji avtohtoni in sicer *Portugalka* in *Modra frankinja*. To kaže na vsaj delno zavednost slovenskih vinogradnikov o pomembnosti lokalnih sort. 
 ```{r,echo=FALSE,message=FALSE,warning=FALSE}
-print(eko_sprememba)
+print(sorte.slika.line)
 ```
 
+
 ```{r,echo=FALSE,message=FALSE,warning=FALSE}
-print(graf_napovedi)
+print(eko_sprememba)
+print(graf_napoved.eko)
+print(graf.napovedi.preu)
 ```
 
