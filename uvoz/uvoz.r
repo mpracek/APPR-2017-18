@@ -264,7 +264,9 @@ ekolosko <- read_csv2("podatki/raba_ekoloskih_zemljics.csv",
 
 ekolosko[[3]] <- parse_number(ekolosko[[3]])
 
-
+tidy_ekolosko <- dcast(ekolosko,
+                       Leto ~ Meritev)
+colnames(tidy_ekolosko) <- c("Leto","Ekoloska.pridelava","V.preusmeritvi")
 
 #površina in število trsnic, matičnjakov in vinogradov (primerjava)
 
@@ -288,7 +290,7 @@ tidy_trsnice.maticnjaki <- arrange(gather(trsnice.maticnjaki,
 stidy_trsnice.maticnjaki <- dcast(tidy_trsnice.maticnjaki,
                                   Leto + Vinorodna.dezela + Pridelava ~ Meritev)
 colnames(stidy_trsnice.maticnjaki) <- c('Leto','Vinorodna.dezela','Pridelava','Povrsina','Stevilo.nasadov')
-
+stidy_trsnice.maticnjaki$Pridelava == Vinogradi <- NULL
 
 #slovenske sorte
 slovenske.sorte <- read_csv2("podatki/vivc.slovenija.csv")

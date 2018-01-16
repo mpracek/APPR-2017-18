@@ -31,6 +31,7 @@ gojenje_slika_stevilo.sadik <- ggplot(stidy_gojenje) + aes(x = Stevilo.sadik,
 podlaga_slika_povrsina <- ggplot(stidy_podlaga) + aes(x = Povrsina,
                                                       y = Nacin.gojenja) +
   geom_line()
+
 #print(podlaga_slika_povrsina)
 
 podlaga_slika_stevilo.sadik <- ggplot(stidy_podlaga) + aes(x = Stevilo.sadik,
@@ -143,20 +144,30 @@ eko_sprememba <- ggplot(ekolosko) + aes(x = Leto,
   geom_smooth(method=lm)
 #print(eko_sprememba)
 ###Napoved spremembe
-napoved.ekolosko <- lm(Vinogradi ~ Leto , data=ekolosko)
+
+
+napoved.ekoloska.pridelava <- lm(Ekoloska.pridelava ~ Leto , data=tidy_ekolosko)
 zanima.me <- data.frame(Leto=c(2017:2025))
-predict(napoved.ekolosko, zanima.me)
+predict(napoved.ekoloska.pridelava, zanima.me)
 napoved <- zanima.me %>% mutate(st.vinogradov=predict(napoved.ekolosko, .))
 
-graf_napovedi <- ggplot(napoved) +
-  aes(x = Leto, y = st.vinogradov) + geom_line()
+napoved.preusmeritev <- lm(V.preusmeritvi ~ Leto , data=tidy_ekolosko)
+zanima.me2 <- data.frame(Leto=c(2017:2025))
+predict(napoved.preusmeritev, zanima.me2)
+napoved.pre.eko <- zanima.me %>% mutate(st.vinogradov=predict(napoved.ekolosko, .))
 
+
+graf_napoved.eko <- ggplot(napoved) +
+  aes(x = Leto, y = st.vinogradov) + geom_line()
+graf.napovedi.preu <- ggplot(napoved.pre.eko) +
+  aes(x = Leto, y =st.vinogradov) + geom_line()
+  
 #Matičnjaki
 
 Povrsina_maticnjaki <- ggplot(stidy_trsnice.maticnjaki) + 
   aes(x = Povrsina,
       y = Pridelava) +
-  geom_line()
+  geom_point()
 #print(Povrsina_maticnjaki)
 
 stevilo_maticnjaki_nasadi <- ggplot(stidy_trsnice.maticnjaki) + 
