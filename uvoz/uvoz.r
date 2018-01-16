@@ -290,7 +290,7 @@ tidy_trsnice.maticnjaki <- arrange(gather(trsnice.maticnjaki,
 stidy_trsnice.maticnjaki <- dcast(tidy_trsnice.maticnjaki,
                                   Leto + Vinorodna.dezela + Pridelava ~ Meritev)
 colnames(stidy_trsnice.maticnjaki) <- c('Leto','Vinorodna.dezela','Pridelava','Povrsina','Stevilo.nasadov')
-stidy_trsnice.maticnjaki$Pridelava == Vinogradi <- NULL
+#stidy_trsnice.maticnjaki$Pridelava == Vinogradi <- NULL
 
 #slovenske sorte
 slovenske.sorte <- read_csv2("podatki/vivc.slovenija.csv")

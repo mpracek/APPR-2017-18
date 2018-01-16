@@ -149,12 +149,12 @@ eko_sprememba <- ggplot(ekolosko) + aes(x = Leto,
 napoved.ekoloska.pridelava <- lm(Ekoloska.pridelava ~ Leto , data=tidy_ekolosko)
 zanima.me <- data.frame(Leto=c(2017:2025))
 predict(napoved.ekoloska.pridelava, zanima.me)
-napoved <- zanima.me %>% mutate(st.vinogradov=predict(napoved.ekolosko, .))
+napoved <- zanima.me %>% mutate(st.vinogradov=predict(napoved.ekoloska.pridelava, .))
 
 napoved.preusmeritev <- lm(V.preusmeritvi ~ Leto , data=tidy_ekolosko)
 zanima.me2 <- data.frame(Leto=c(2017:2025))
 predict(napoved.preusmeritev, zanima.me2)
-napoved.pre.eko <- zanima.me %>% mutate(st.vinogradov=predict(napoved.ekolosko, .))
+napoved.pre.eko <- zanima.me %>% mutate(st.vinogradov=predict(napoved.preusmeritev, .))
 
 
 graf_napoved.eko <- ggplot(napoved) +
