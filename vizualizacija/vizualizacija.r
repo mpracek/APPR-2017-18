@@ -134,6 +134,18 @@ stidy_slika_stevilo_vinogradov <- ggplot(stidy_stevilo_vinogradov.sadik) +
       y = factor(povp.sadik)) +
   coord_polar() 
 ##print(povprecno.sadike)
+
+sorte_drzave <- ggplot(vse.sorte) + 
+  geom_bar() +
+  aes(x = drzava.izvora) +
+  theme(axis.text.x = element_text(angle = 90 , vjust = 0.5, hjust = 1)) +
+  geom_bar()
+#print(sorte_drzave)
+
+
+stevilo_sort <- vse.sorte %>% count(drzava.izvora)
+
+
                 
 #Delo z zemljevidom; število sort po državah sveta
 zemljevid <- uvozi.zemljevid("http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/cultural/ne_110m_admin_0_map_units.zip",
