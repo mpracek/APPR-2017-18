@@ -89,6 +89,7 @@ Po tem sem pogledal trtno sestavo po starosti. Problem, ki sem ga odkril je ta, 
 ```{r,echo=FALSE,message=FALSE,warning=FALSE}
 print(sorte.slika.line)
 ```
+  
 Poleg tega sem pogledal, če je kakšna korelacija med površino ter številom sadik, posajenih na območju. Izkaže se, da je povezava lepa linearna funkcija.  
   
 Ko sem to dokončal, sem se odločil pogledati še podatke o ekološkem vinogradništvu v Sloveniji. 
