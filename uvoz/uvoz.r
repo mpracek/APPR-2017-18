@@ -327,9 +327,7 @@ sorte <- rbind(bele.sorte, rdece.sorte)
 # 
 # drzave <- sorte$'Drzava.izvora'
 #  
-# #veckratnik <- grep()
-
-# dvojni <- grep(("("), sorte$Drzava.izvora)
+# #veckratnik <- grep()# dvojni <- grep(("("), sorte$Drzava.izvora)
 # sorte1 <- apply(sorte[dvojni, ], 1, . %>% as.list() %>%
 # {data.frame(Ime = .$Ime,
 #              Drzava.izvora = .$Drzava.izvora %>%
