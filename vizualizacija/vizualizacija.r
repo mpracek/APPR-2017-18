@@ -93,7 +93,9 @@ sorte_slika_stevilo.sadik <- ggplot(stidy_sorte.povrsina_sadike) +
 delez_sadik <- ggplot(stidy_sorte.povrsina_sadike)+
   aes(x = Vinorodna.dezela,
       y = Stevilo.sadik,
-      fill = Sorta) + geom_col()
+      fill = Sorta) +
+  theme(axis.text.x = element_text(angle = 90 , vjust = 0.5, hjust = 1)) +
+  geom_col() 
 #print(delez_sadik)
 
 #####Sorte po starosti, površini in sadikah
