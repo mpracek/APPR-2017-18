@@ -34,10 +34,11 @@ Svoje raziskovanje sem začel z zunanjim izgledom vinogradov. Tu sem pridobil tr
 Vse te tabele imajo podobno izgradnjo;  
 - Prvi stolpec je stolpec `leto`  
 - Drugi stolpec je stolpec `vinorodna.dezela`   
-- Tretji stolpec je opisne spremenljivke, v podanem primeru je to `zatravljenost` - V nadaljnih stolpcih pa se nahajajo meritve:  
-** i) `povrsina`,  
-** i) `stevilo.sadik`  
-** i) `stevilo.vinogradov`  
+- Tretji stolpec je opisne spremenljivke, v podanem primeru je to `zatravljenost` 
+- V nadaljnih stolpcih pa se nahajajo meritve:  
+-  `povrsina`,  
+-  `stevilo.sadik`  
+-  `stevilo.vinogradov`  
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 kable(stidy_zatravljenost, digits = 10)
 ```
