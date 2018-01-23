@@ -68,6 +68,9 @@ graf_napoved.eko <- ggplot(napoved) +
 graf.napovedi.preu <- ggplot(napoved.pre.eko) +
   aes(x = Leto, y =st.vinogradov) + geom_line()
 
+zdruzene.napovedi <- rbind(graf.napovedi.preu,graf.napovedi.preu)
+####Združi oba grafa!!!! 
+
 #Matičnjaki
 
 Povrsina_maticnjaki <- ggplot(stidy_trsnice.maticnjaki) + 

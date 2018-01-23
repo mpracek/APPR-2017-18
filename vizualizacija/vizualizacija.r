@@ -95,7 +95,9 @@ delez_sadik <- ggplot(stidy_sorte.povrsina_sadike)+
       y = Stevilo.sadik,
       fill = Sorta) +
   theme(axis.text.x = element_text(angle = 90 , vjust = 0.5, hjust = 1)) +
-  geom_col() 
+  geom_col() + ggtitle("Število ") + xlab("") + ylab("") +
+  guides(fill = guide_colorbar(title = "Število avtohtonih sort"))
+
 #print(delez_sadik)
 
 #####Sorte po starosti, površini in sadikah
