@@ -99,8 +99,11 @@ print(eko_sprememba)
 ```
   
 Kot povsod se tudi v slovenskem vinogradništvu kaže trend večjega nagiba k ekološkem kmetovanju. Precej hitreje narašča število vinogradov na ekoloških gospodarstvih kot število vinogradov na kmetijskih gospodarstvih v preusmeritvi. Za obe imed teh dveh gospodarstev sem se odločil pogledati kaj kaže trend do leta 2025, in tako poizkusiti določiti rast njihovega števila.  
+  
+>Za ekološki vinograd ne obstaja neke splošne definicije, prav tako se lahko ekološki vinogradi pri različnih vinarjih ter v različnih vinorodnih območjih precej razlikujejo.  Razlike so v sortah ter podlagah vinske trte, vzgojnih oblikah, obdelanosti tal, uporabi mehanizacije ter v uporabi pripravkov in gnojil dovoljenih v ekološki pridelavi. Skupni imenovalec vseh teh vinogradov pa je neuporaba sredstev za uničenje travne ruše, neuporaba lahkotopnih mineralnih gnojil, ter sintetičnih fungicidov in insekticidov. (Ekolokoško vinogradništvo, Dostopno na: http://www.ekolosko-vinogradnistvo.si/ekoloscaronki-vinograd.html, [23.1.2018])
+
 ```{r,echo=FALSE,message=FALSE,warning=FALSE}
-print(graf_napoved.eko)
+print(graf_napoved.eko) 
 ```
   
 Trend kaže, da bo do leta 2025 to število preseglo 55000, kar je nerealna številka, saj je bilo v Sloveniji leta 2009 42970 vinogradov, leta 2015 pa 49473, torej bi moralo število vinogradov na ekoloških kmetijah to številko povoziti.  
