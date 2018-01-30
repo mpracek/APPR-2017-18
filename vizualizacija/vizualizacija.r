@@ -80,7 +80,9 @@ sorte.slika.point <- ggplot(stidy_sorte.povrsina_sadike) +
 sorte.slika.line <- ggplot(stidy_sorte.povrsina_sadike) + 
   aes(x = Povrsina,
       y = Stevilo.sadik) +
-  geom_point() + geom_smooth(method=lm)
+  geom_point() + geom_smooth(method=lm)+geom_col() + ggtitle("Število sadik na enoto površine") + 
+  xlab("Število sadik") + ylab("Površina") +
+  guides(fill = guide_colorbar(title = "Število"))
 #print(sorte_slika_povrsina)
 
 sorte_slika_stevilo.sadik <- ggplot(stidy_sorte.povrsina_sadike) + 
@@ -95,8 +97,8 @@ delez_sadik <- ggplot(stidy_sorte.povrsina_sadike)+
       y = Stevilo.sadik,
       fill = Sorta) +
   theme(axis.text.x = element_text(angle = 90 , vjust = 0.5, hjust = 1)) +
-  geom_col() + ggtitle("Število ") + xlab("") + ylab("") +
-  guides(fill = guide_colorbar(title = "Število avtohtonih sort"))
+  geom_col() + ggtitle("Število trt po sortah v vinorodnih deželah") +
+  xlab("Število sadik") + ylab("Vinorodna dežela") 
 
 #print(delez_sadik)
 

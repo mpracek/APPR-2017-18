@@ -47,7 +47,7 @@ eko_sprememba <- ggplot(ekolosko) + aes(x = Leto,
                                         y = Vinogradi,
                                         col = Meritev) + 
   geom_path() +
-  geom_smooth(method=lm)
+  geom_smooth(method=lm) + ggtitle("Število ekoloških vinogradov")
 #print(eko_sprememba)
 ###Napoved spremembe
 
@@ -64,19 +64,21 @@ napoved.pre.eko <- zanima.me %>% mutate(st.vinogradov=predict(napoved.preusmerit
 
 
 graf_napoved.eko <- ggplot(napoved) +
-  aes(x = Leto, y = st.vinogradov) + geom_line()
+  aes(x = Leto, y = st.vinogradov) + geom_line() +
+  ggtitle("Ekološke kmetije")  
 graf.napovedi.preu <- ggplot(napoved.pre.eko) +
-  aes(x = Leto, y =st.vinogradov) + geom_line()
+  aes(x = Leto, y =st.vinogradov) + geom_line() +
+  ggtitle("Kmetije v preusmeritvi")
 
-zdruzene.napovedi <- rbind(graf.napovedi.preu,graf.napovedi.preu)
+#zdruzene.napovedi <- rbind(graf.napovedi.preu,graf.napovedi.preu)
 ####Združi oba grafa!!!! 
-
+#naredil v poročilu
 #Matičnjaki
 
 Povrsina_maticnjaki <- ggplot(stidy_trsnice.maticnjaki) + 
   aes(x = Povrsina,
       y = Pridelava) +
-  geom_point()
+  geom_point() + ggtitle("")
 #print(Povrsina_maticnjaki)
 
 stevilo_maticnjaki_nasadi <- ggplot(stidy_trsnice.maticnjaki) + 
