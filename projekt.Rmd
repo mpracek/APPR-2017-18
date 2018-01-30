@@ -34,13 +34,13 @@ Svoje raziskovanje sem začel z zunanjim izgledom vinogradov. Tu sem pridobil tr
 Vse te tabele imajo podobno izgradnjo;  
 - Prvi stolpec je stolpec `leto`  
 - Drugi stolpec je stolpec `vinorodna.dezela`   
-- Tretji stolpec je opisne spremenljivke, v podanem primeru je to `zatravljenost` 
+- Tretji stolpec je opisne spremenljivke, v podanem primeru je to `zatravljenost`   
 - V nadaljnih stolpcih pa se nahajajo meritve:  
 -  `povrsina`,  
 -  `stevilo.sadik`  
 -  `stevilo.vinogradov`.   
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
-kable(stidy_zatravljenost, digits = 10)
+kable(head(stidy_zatravljenost))
 ```
 
   
@@ -83,9 +83,9 @@ Po tem sem se začel ukvarjati z drugim delom moje analize.Takoj na začetku sem
 print(delez_sadik)
 ```
 
-Ugotovil sem še, da je najpogostejša sorta v Sloveniji laški rizling, med rdečimi sortami pa prevladuje refošk. Pomembni beli sorti sta še chardonnay in sauvignon, ostale pa nastopajo v manjšem številu. Med rdečimi sortami so blizu refoška še modra frankinja, Merlot in Žametovka.  
+Ugotovil sem še, da je najpogostejša sorta v Sloveniji laški rizling, med rdečimi sortami pa prevladuje refošk. Pomembni beli sorti sta še chardonnay in sauvignon, ostale pa nastopajo v manjšem številu. Med rdečimi sortami so blizu refoška še modra frankinja, merlot in žametovka.  
  
-Po tem sem pogledal trtno sestavo po starosti. Problem, ki sem ga odkril je ta, da je več kot 50% trt posajenih v slovenskih vinogradih starejših od 20 let. To so torej že stare trte, ki lahko proizvedejo manj kakovostnega grozdja.  
+Po tem sem pogledal trtno sestavo po starosti. Problem, ki sem ga odkril je ta, da je več kot 50% trt posajenih v slovenskih vinogradih starejših od 20 let. To so torej že starejše trte, ki lahko proizvedejo manj kakovostnega grozdja.  
 
 ```{r,echo=FALSE,message=FALSE,warning=FALSE}
 print(sorte.slika.line)
@@ -100,15 +100,11 @@ print(eko_sprememba)
   
 Kot povsod se tudi v slovenskem vinogradništvu kaže trend večjega nagiba k ekološkem kmetovanju. Precej hitreje narašča število vinogradov na ekoloških gospodarstvih kot število vinogradov na kmetijskih gospodarstvih v preusmeritvi. Za obe imed teh dveh gospodarstev sem se odločil pogledati kaj kaže trend do leta 2025, in tako poizkusiti določiti rast njihovega števila.  
   
->Za ekološki vinograd ne obstaja neke splošne definicije, prav tako se lahko ekološki vinogradi pri različnih vinarjih ter v različnih vinorodnih območjih precej razlikujejo.  Razlike so v sortah ter podlagah vinske trte, vzgojnih oblikah, obdelanosti tal, uporabi mehanizacije ter v uporabi pripravkov in gnojil dovoljenih v ekološki pridelavi. Skupni imenovalec vseh teh vinogradov pa je neuporaba sredstev za uničenje travne ruše, neuporaba lahkotopnih mineralnih gnojil, ter sintetičnih fungicidov in insekticidov. (Ekolokoško vinogradništvo, Dostopno na: http://www.ekolosko-vinogradnistvo.si/ekoloscaronki-vinograd.html, [23.1.2018])
+>Za ekološki vinograd ne obstaja neke splošne definicije, prav tako se lahko ekološki vinogradi pri različnih vinarjih ter v različnih vinorodnih območjih precej razlikujejo.  Razlike so v sortah ter podlagah vinske trte, vzgojnih oblikah, obdelanosti tal, uporabi mehanizacije ter v uporabi pripravkov in gnojil dovoljenih v ekološki pridelavi. Skupni imenovalec vseh teh vinogradov pa je neuporaba sredstev za uničenje travne ruše, neuporaba lahkotopnih mineralnih gnojil, ter sintetičnih fungicidov in insekticidov. (Ekološko vinogradništvo, Dostopno na: http://www.ekolosko-vinogradnistvo.si/ekoloscaronki-vinograd.html, [23.1.2018])
 
 ```{r,echo=FALSE,message=FALSE,warning=FALSE}
-print(graf_napoved.eko) 
+grid.arrange(graf.napovedi.preu, graf_napoved.eko, ncol = 2)
 ```
   
 Trend kaže, da bo do leta 2025 to število preseglo 55000, kar je nerealna številka, saj je bilo v Sloveniji leta 2009 42970 vinogradov, leta 2015 pa 49473, torej bi moralo število vinogradov na ekoloških kmetijah to številko povoziti.  
-```{r,echo=FALSE,message=FALSE,warning=FALSE}
-print(graf.napovedi.preu)
-```
-  
 Medtem ko je pričakovano število vinogradov na kmetijskih gospodarstvih v preusmeritvi leta 2025 približno 33000, kar je še vedno pretirana številka.  
