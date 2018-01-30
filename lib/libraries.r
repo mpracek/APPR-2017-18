@@ -17,6 +17,7 @@ library(RColorBrewer)
 library(geojsonio)
 library(rmapshaper)
 library(leaflet)
+library(gridExtra)
 
 # Uvozimo funkcije za pobiranje in uvoz zemljevida.
 source("lib/uvozi.zemljevid.r", encoding = "UTF-8")
