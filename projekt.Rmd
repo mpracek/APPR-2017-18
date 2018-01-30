@@ -20,7 +20,7 @@ source("lib/libraries.r", encoding = "UTF-8")
 
 # Izbira teme
 
-Za svojo projektno nalogo bom raziskal vinogradništvo v Sloveniji. Zanimalo me bo kakšni so vinogradi, ki jih imamo v Sloveniji, ter katere sorte gojimo. Da bom bolje predstavil položaj slovenskega vinogradništva v svetu, bom poleg tega pogledal še število avtohtonih sort na državo.
+Za svojo projektno nalogo bom raziskal vinogradništvo v Sloveniji. Zanimalo me bo stanje slovenskih vinogradov ter katere sorte gojimo. Da bom bolje predstavil položaj slovenskega vinogradništva v svetu, bom poleg tega pogledal še število avtohtonih sort na državo.
 ![Vinograd](slike/vinograd.jpeg)
   
 
@@ -64,13 +64,13 @@ Preden si pogledamo stanje v slovenskih vinogradih, si poglejmo, kaj sploh pomen
 print(zemljevid.drzave)
 ```
   
-Vinogradništvo, ki je kot vidimo po svetu zelo razširjeno, je prav v Evropi najbogatejše.Slovenija v tem ni izjema, saj lahko vidimo, da je število avtohtonih sort podobno kot je v ostalih sosednjih državah z izjemo Italije, ki ima v sistemu [VIVC](www.vivc.de) vpisanih največ sort.  
+Vinogradništvo, ki je kot vidimo po svetu zelo razširjeno, je prav v Evropi najbogatejše. Slovenija v tem ni izjema, saj lahko vidimo, da je število avtohtonih sort podobno kot je v ostalih sosednjih državah z izjemo Italije, ki ima v sistemu [VIVC](www.vivc.de) vpisanih največ sort.  
 
 ```{r,echo=FALSE,message=FALSE, warning=FALSE}
 print(zemljevid.evropa)
 ```
   
-Slovensko vinogradništvo s 27 avtohtonimi sortami ne predstavlja posebne izjeme v svetovnem oziroma evropskem merilu, vendar gre za manjše število od povprečnega. Za te sorte se tako le poveča pritisk na njihovo ohranitev, zaradi česar pričakujem, da se bodo vsaj nekatere izmed teh sort pokazale med najpogostejšimi sortami.  
+Slovensko vinogradništvo s 27 avtohtonimi sortami ne izstopa v svetovnem oziroma evropskem merilu, vendar je le to število manjše od povprečnega. Ker je torej avtohtonih sort malo lahko pričakujemo, da se bodo vsaj nekatere izmed teh sort pokazale med najpogostejšimi sortami.  
   
 Analizo vinogradništva v Sloveniji sem začel z dejavniki, ki jih posameznik opazi takoj, ko stopi v vinograd, torej z nagnjenostjo površja, načinom gojenja, ter zatravljenostjo, temu pa sem dodal še analizo trtne podlage, saj gre za zelo pomemben dejavnik pri rasti trte.  
   
@@ -85,13 +85,13 @@ print(delez_sadik)
 
 Ugotovil sem še, da je najpogostejša sorta v Sloveniji laški rizling, med rdečimi sortami pa prevladuje refošk. Pomembni beli sorti sta še chardonnay in sauvignon, ostale pa nastopajo v manjšem številu. Med rdečimi sortami so blizu refoška še modra frankinja, merlot in žametovka.  
  
-Po tem sem pogledal trtno sestavo po starosti. Problem, ki sem ga odkril je ta, da je več kot 50% trt posajenih v slovenskih vinogradih starejših od 20 let. To so torej že starejše trte, ki lahko proizvedejo manj kakovostnega grozdja.  
+Po tem sem pogledal trtno sestavo po starosti, in odkril težavo, ki bolj kot na vinogradnike vpliva na vinarje. V oči mi je padlo dejstvo, da je več kot 50% trt posajenih v slovenskih vinogradih starejših od 20 let. To so torej že starejše trte, ki lahko proizvedejo manj kakovostnega grozdja in posledično manj kakovostnega vina.  
 
 ```{r,echo=FALSE,message=FALSE,warning=FALSE}
 print(sorte.slika.line)
 ```
   
-Poleg tega sem pogledal, če je kakšna korelacija med površino ter številom sadik, posajenih na območju. Izkaže se, da je povezava lepa linearna funkcija.  
+Poleg tega sem pogledal, če je kakšna korelacija med površino ter številom sadik, posajenih na območju. Izkaže se, da je povezava lepa linearna funkcija, kar ni presenetljivo, saj se večina vinogradnikov drži tega, da pustijo med trtami vsaj meter prostora.  
   
 Ko sem to dokončal, sem se odločil pogledati še podatke o ekološkem vinogradništvu v Sloveniji. 
 ```{r,echo=FALSE,message=FALSE,warning=FALSE}
@@ -108,3 +108,7 @@ grid.arrange(graf.napovedi.preu, graf_napoved.eko, ncol = 2)
   
 Trend kaže, da bo do leta 2025 to število preseglo 55000, kar je nerealna številka, saj je bilo v Sloveniji leta 2009 42970 vinogradov, leta 2015 pa 49473, torej bi moralo število vinogradov na ekoloških kmetijah to številko povoziti.  
 Medtem ko je pričakovano število vinogradov na kmetijskih gospodarstvih v preusmeritvi leta 2025 približno 33000, kar je še vedno pretirana številka.  
+
+#Zaključek  
+  
+Iz zbranih podatkov lahko izvlečemo, da se je precej v porastu ekološko vinogradništvo, ostalih zaključkov pa iz zbranih podatkov ne moremo izvleči, saj je podatkov preprosto premalo.
