@@ -9,27 +9,28 @@ S svojim projektom želim raziskati obširno tematiko vinogradništva v Slovenij
 Pri vsem bom upošteval razdeljenost po vinorodnih deželah.
 Podatki, ki sem jih našel na SURS, se nanašajo na zelo različna leta in so zato problematični, saj se jih ne da lepo združiti in/ ali primerjati. Velik problem je tudi nedostopnost podatkov, saj vsi podatki niso splošno dostopni, saj so poslovna tajnost, kar je bil tudi eden izmed razlogov, da nisem obravnaval tudi vinarstva. 
 
-Prvi del mojega raziskovanja, torej vinogradi po zunanjem izgledu je del, kjer bom opazoval zunanje značilnosti, kot so na primer zatravljenost, nagib površine, število trt itd. Ostala dva stolpca bosta Vinorodna dežela ter Meritev.
-Tudi v drugem delu bom imel stolpca Meritev ter Vinorodna dežela, poleg tega pa bodo stolpci, kjer bom opisoval trte, in sicer sorte ter starost.
-Naloga pa bo vsebovala tudi dve primerjalni tabeli, in sicer tabelo slovenskih avtohtonih sort ter tabelo ekološke pridelave.
-Za občutek, kaj pomeni Slovenija v vinogradništvu in raznolikosti le tega, bom dodal še tabelo, ki sem jo našel na Wikipediji, kjer so sorte zapisane ob svoji državi izvora. 
+Prvi del mojega raziskovanja, torej vinogradi po zunanjem izgledu je del, kjer bom opazoval zunanje značilnosti, kot so na primer zatravljenost, nagib površine, število trt itd. Prvi stolpev v vsaki tabeli je 'Leto', drugi je 'Vinorodna.dezela', sledi stolpec meritve z opisimi lastnostni. V preostalih stolpcih se nahajajo rezultati meritve v številu trt oziroma v površini.
+Tudi v drugem delu bom imel enake prve dva ter zadnje stolpce, le stolpec meritve bo imel drugačne meritve.
+Naloga pa bo vsebovala tudi več primerjalnih tabel, in sicer tabelo slovenskih ter  svetovnih avtohtonih sort ter tabelo ekološke pridelave.
+ 
 
 *1.Zunanji opis vinogradov*
-  - `Vinorodna dežela` - vinogradništvo bom razdelil na 4 regije, Primorsko, Podravsko, Posavsko ter zunaj vinorodnih območij,
-  - `pridelovalci` - meritev: število pridelovalcev(število),
-  - `število vinogradov` - meritev: število vinogradov (število),
-  - `zatravljenost` - meritev: površina, razdeljeno na zatravljenost in nezatravljenost(število),
-  - `nagib` - meritev: površina, razdeljeno na različne stopnje nagibov površja(število),
-  - `podlaga` - meritev: število trt, ki rastejo na določeni podlagi(število),
- 
-  
+  - `Leto` - Leto meritve
+  - `Vinorodna.dezela` - vinogradništvo bom razdelil na 4 regije, Primorsko, Podravsko, Posavsko ter zunaj vinorodnih območij,
+  - `Meritev` - zatravljenost, podlaga, nagib, način gojenja
+  - `Povrsina` - meritev: površina v hektarih(število)
+  - `Število trt` - meritev: število trt 
+
 *2. Vinogradi po trtni sestavi*
+  - `Leto` - Leto meritve
   - `Vinorodna dežela` - vinogradništvo bom razdelil na 4 regije, Primorsko, Podravsko, Posavsko ter zunaj vinorodnih območij,
-  - `sorta` - meritev: število trt določene sorte(število),
-  - `starost` - meritev: število trt določene starosti (število),
+  - `Meritev` - starost, sorta 
+  - `Povrsina` - meritev: površina v hektarih(število)
+  - `Število trt` - meritev: število trt 
 
 *3. Za mojo nalogo bodo pomembne tudi dve primerjalne tabele, in sicer:*
   - Tabelo slovenskih avtohtonih sort
+  - Tabela svetovnih avtohtonih sort
   - Tabela ekološke pridelave 
 
 ## Program
@@ -63,5 +64,6 @@ Za zagon tega vzorca je potrebno namestiti sledeče pakete za R:
 * `gsubfn` - za delo z nizi (čiščenje podatkov)
 * `ggplot2` - za izrisovanje grafov
 * `extrafont` - za pravilen prikaz šumnikov (neobvezno)
+* `gridExtra` - za pravilno razporeditev grafov
 
 
