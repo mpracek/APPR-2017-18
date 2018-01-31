@@ -98,7 +98,7 @@ delez_sadik <- ggplot(stidy_sorte.povrsina_sadike)+
       y = Stevilo.sadik,
       fill = Sorta) +
   theme(axis.text.x = element_text(angle = 90 , vjust = 0.5, hjust = 1)) +
-  geom_col() + ggtitle("Trte po sortah v vinorodnih deželah") +
+  geom_col() + ggtitle("Število trt po sortah") +
   xlab("Število sadik") + ylab("Vinorodna dežela") 
 
 #print(delez_sadik)
