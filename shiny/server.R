@@ -1,7 +1,7 @@
 library(shiny)
 shinyServer(
   function(input, output) {
-  stevilo <- 
+  stevilo <- stevilo_sort$n[stevilo_sort$drzava.izvora == "input$drzava"]
   output$drzave <- renderText({paste0(input$drzava ,"ima",stevilo,
                                       "avtohtonih sort.")
     
