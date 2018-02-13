@@ -18,6 +18,8 @@ library(geojsonio)
 library(rmapshaper)
 library(leaflet)
 library(gridExtra)
+library(shinythemes)
+library(DT)
 
 # Uvozimo funkcije za pobiranje in uvoz zemljevida.
 source("lib/uvozi.zemljevid.r", encoding = "UTF-8")
