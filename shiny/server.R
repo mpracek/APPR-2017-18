@@ -1,10 +1,11 @@
 library(shiny)
 shinyServer(
   function(input, output) {
-  stevilo <- stevilo_sort$n[stevilo_sort$drzava.izvora == "input$drzava"]
-  output$drzave <- renderText({paste0(input$drzava ,"ima",stevilo,
-                                      "avtohtonih sort.")
-    
+  stevilo <- stevilo_sort$n[stevilo_sort$drzava.izvora == input$drzava]
+  output$drzave <- renderText({paste0(input$drzava ," ima ",
+                                      stevilo_sort$n[stevilo_sort$drzava.izvora == input$drzava],
+                                      " avtohtonih sort.")
+  output$zemljevid <- renderPlot({print(zemljevid.drzave)})  
   })
   output$eko.pre <- renderPlot({
     print(graf.napovedi.preu)
