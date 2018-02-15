@@ -65,10 +65,10 @@ napoved.pre.eko <- zanima.me %>% mutate(st.vinogradov=predict(napoved.preusmerit
 
 graf_napoved.eko <- ggplot(napoved) +
   aes(x = Leto, y = st.vinogradov) + geom_line() +
-  ggtitle("Ekološke kmetije")  
+  ggtitle("Ekološke kmetije") + xlab("Leto") + ylab("Število vinogradov")
 graf.napovedi.preu <- ggplot(napoved.pre.eko) +
   aes(x = Leto, y =st.vinogradov) + geom_line() +
-  ggtitle("Kmetije v preusmeritvi")
+  ggtitle("Kmetije v preusmeritvi") + xlab("Leto") + ylab("Število vinogradov")
 
 #zdruzene.napovedi <- rbind(graf.napovedi.preu,graf.napovedi.preu)
 ####Združi oba grafa!!!! 
