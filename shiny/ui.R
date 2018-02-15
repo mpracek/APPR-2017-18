@@ -1,6 +1,6 @@
 library(shiny)
 
-shinyUI(fluidPage(theme = shinytheme("united"),
+shinyUI(fluidPage(theme = shinytheme("cerulean"),
                   titlePanel("Slovensko vinogradništvo"),
                   tabsetPanel(
                     tabPanel("Države in avtohtone trtne sorte ",
