@@ -22,7 +22,7 @@ source("lib/libraries.r", encoding = "UTF-8")
 # Izbira teme
 
 Za svojo projektno nalogo bom raziskal vinogradništvo v Sloveniji. Zanimalo me bo stanje slovenskih vinogradov ter katere sorte gojimo. Da bom bolje predstavil položaj slovenskega vinogradništva v svetu, bom poleg tega pogledal še število avtohtonih sort na državo.
-![Vinograd](slike/vinograd.jpeg)
+![Vinograd](slike/vinograd.jpg)
   
 
 # Obdelava, uvoz in čiščenje podatkov
