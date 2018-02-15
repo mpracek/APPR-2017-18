@@ -7,8 +7,11 @@ shinyServer(
     output$zemljevid <- renderPlot({print(zemljevid.drzave)})  
     output$eko.pre <- renderPlot({print(graf.napovedi.preu)})
     output$eko.eko <- renderPlot({print(graf_napoved.eko)} )
-    outuput$slika1 <- renderImage({"slike/eko.vinograd.jpg"})
-    output$tekst.pre <- renderText({napoved.pre.eko$st.vinogradov[napoved.pre.eko$Leto == "eko.preu"]})
-    output$tekst.eko <- renderText({napoved$st.vinogradov[napoved$Leto == "eko.leto"]})
+    output$tekst.pre <- renderText({paste0("V letu ", input$eko.preu, " se predvideva da bo ",
+                                           filter(napoved.pre.eko, Leto == input$eko.preu) %>% select(st.vinogradov),
+                                           " vinogradov na kmetijah v preusmeritvi v ekološko kmetijstvo.")})
+    output$tekst.eko <- renderText({paste0("Predvideva se, da bo v letu ", input$eko.leto, " ",
+                                           filter(napoved, Leto == input$eko.leto) %>% select(st.vinogradov),
+                                           " vinogradov na ekoloških kmetijah")})
     output$sorte <- DT::renderDataTable(datatable(stidy_sorte.povrsina_sadike))
-  })
+    })

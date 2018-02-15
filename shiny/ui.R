@@ -1,30 +1,33 @@
 library(shiny)
 
-shinyUI(fluidPage(theme = shinytheme("superhero"),
+shinyUI(fluidPage(theme = shinytheme("united"),
                   titlePanel("Slovensko vinogradništvo"),
                   tabsetPanel(
-                        tabPanel("Države in avtohtone trtne sorte ",
-                             sidebarLayout(
-                               sidebarPanel(
-                                 selectInput(inputId = "drzava",
+                    tabPanel("Države in avtohtone trtne sorte ",
+                            sidebarPanel(selectInput(inputId = "drzava",
                                              label = "Izberi državo iz seznama",
                                              choices = stevilo_sort$drzava.izvora, 
                                              selected = "Slovenia")),
-                               mainPanel(textOutput("drzave"), plotOutput("zemljevid")))),
-                  tabsetPanel("Ekološko vinogradništvo"),
-                        tabPanel("Ekološke kmetije v preusmeritvi",
-                                      sliderInput(inputId = "eko.preu", 
+                             mainPanel(textOutput("drzave"),
+                                       plotOutput("zemljevid"))),
+                  tabPanel("Ekološke kmetije v preusmeritvi",
+                           sidebarPanel(sliderInput(inputId = "eko.preu",
+                                              label = "Izberi leto",
+                                              min = 2017,max = 2025, value = 2020),
+                             textOutput("tekst.pre")),
+                           mainPanel(plotOutput("eko.pre"))
+                           
+                           ),
+                  tabPanel("Vinogradi na ekoloških kmetijah",
+                              sidebarPanel(sliderInput(inputId = "eko.leto", 
                                                   label = "Izberi leto",
                                                   min = 2017,max = 2025, value = 2020),
-                                      plotOutput("eko.pre"),
-                                      textOutput("tekst.pre"),
-                                      imageOutput("slika1")),
-                         tabPanel("Vinogradi na ekoloških kmetijah",
-                                      sliderInput(inputId = "eko.leto", 
-                                                  label = "Izberi leto",
-                                                  min = 2017,max = 2025, value = 2020),
-                                      plotOutput("eko.eko"),
-                                      textOutput("tekst.eko"),
-                                      imageOutput("slika1")),
-                    tabsetPanel("Slovensko vinogradništvo",
-                                      fluidRow(DT::dataTableOutput("tabela"))))))
+                                                  textOutput("tekst.eko")),
+                                      mainPanel(plotOutput("eko.eko"))),
+                  tabPanel("Slovensko vinogradništvo",
+                                      fluidRow(DT::dataTableOutput("sorte")
+                            )
+                           )
+                    )
+                  )
+        )
