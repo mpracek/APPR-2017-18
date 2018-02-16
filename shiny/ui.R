@@ -15,7 +15,7 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                                               label = "Izberi leto",
                                               min = 2017,max = 2025, value = 2020),
                              textOutput("tekst.pre"),
-                             img(src = "slike/eko.vinograd.jpg")),
+                             img(src = "https://github.com/mpracek/APPR-2017-18/blob/master/slike/eko.vinograd.jpg?raw=true")),
                            mainPanel(plotOutput("eko.pre"))
                            
                            ),
@@ -24,7 +24,7 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                                                   label = "Izberi leto",
                                                   min = 2017,max = 2025, value = 2020),
                                                   textOutput("tekst.eko"),
-                                           img(src = "slike/eko.vinograd.jpg")),
+                                           img(src = "https://github.com/mpracek/APPR-2017-18/blob/master/slike/roze.jpg?raw=true")),
                                       mainPanel(plotOutput("eko.eko"))),
                   tabPanel("Slovensko vinogradništvo",
                                       fluidRow(DT::dataTableOutput("sorte")

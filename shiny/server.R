@@ -12,6 +12,6 @@ shinyServer(
                                            " vinogradov na kmetijah v preusmeritvi v ekološko kmetijstvo.")})
     output$tekst.eko <- renderText({paste0("Predvideva se, da bo v letu ", input$eko.leto, " ",
                                            round(filter(napoved, Leto == input$eko.leto) %>% select(st.vinogradov), digits = 0),
-                                           " vinogradov na ekoloških kmetijah")})
+                                           " vinogradov na ekoloških kmetijah.")})
     output$sorte <- DT::renderDataTable(datatable(stidy_sorte.povrsina_sadike))
     })
